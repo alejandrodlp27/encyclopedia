@@ -1,0 +1,66 @@
+%%% EXERCISE 5
+\HRule
+\subsection*{Exercise 5}
+\subsection*{%
+Let $R$ be a subring of $S$. Prove that if there exists a retraction $S\morf{\varphi} R$, that is $\varphi$ is a
+homomorphism such that $\varphi|_R=\Id_R$, then if $S$ is noetherian this implies that $R$ is noetherian.
+Give an example of rings $R\subseteq S$ such that $S$ is noetherian, but $R$ isn't.
+} 
+
+%%% ANSWER
+\begin{proof} %
+
+Let $I\leq R$ be an ideal and consider the ideal $J=\varphi^{-1}[I]$ of $S$. Since $S$ is noetherian by hypothesis,
+$J$ is finitely generated, say $J=\gen{f_1,\ldots,f_n}_S$. By construction, we have that $\varphi(f_i)\in I\subseteq R$ for all
+$i=1,\ldots,n$ and we state that $I=\gen{\varphi(f_1),\ldots,\varphi(f_n)}_R$.
+
+Let $g\in I$. Since $\varphi$ is a retraction, then $\varphi(g)=g\in I$ so that $g\in J$. Thus there exist scalars
+$\la_1,\ldots,\la_n\in S$ such that $g=\la_1 f_1 +\cdots +\la_n f_n$. If we apply $\varphi$ to this equation we get:
+\[
+	g=\varphi(g)=\varphi(\la_1)\varphi(f_1)+\cdots+\varphi(\la_n)\varphi(f_n) \quad (\varphi(\la_i)\in R).
+\]
+Therefore $g$ is an $R$-linear combination of $\{\varphi(f_1),\ldots,\varphi(f_n)\}$ and we can conclude that
+$I=\gen{\varphi(f_1),\ldots,\varphi(f_n)}_R$. Thus every ideal of $R$ is finitely generated which implies that $R$ is noetherian.
+
+Next we give an example where this exercise fails if there isn't a retraction from $S$ to $R$. Let $R=k[x_1,x_2,\ldots]$ be
+the polynomial ring over a field $k$ with an infinite amount of variables. Clearly $R$ isn't noetherian because
+\[
+	\gen{x_1} \subsetneq \gen{x_1,x_2} \subsetneq \gen{x_1,x_2,x_3} \subsetneq \cdots
+\]
+is an ascending chain of ideals that doesn't terminate (because $x_{n+1}\not\in \gen{x_1,\ldots,x_n}$ for all $n$).
+Since $R$ is an integral domain then the zero ideal $\zero$ is prime and we may localize with respect to the multiplicatively
+closed set $R-\zero$. This localization is $K$, the field of fractions of $R$. The canonical localization homomorphism:
+\[
+	R\morf{\ell} K \quad f\mapsto \frac{f}{1}
+\]
+is thus injective because
+\[
+	\frac{f}{1}=\frac{g}{1} \quad\iff\quad \exists h\in R-\zero \;\;\text{such that}\;\; h(f-g)=0
+\]
+and since $R$ is an integral domain, this last equality is equivalent to $f=g$.
+
+We may therefore conclude that the image of $\ell$ is isomorphic to $R$ and we may think of $R$ as a subring of $K$.
+Since $K$ is a field, it is clearly noetherian. Thus the noetherian property is not always preserved for subrings of a
+noetherian ring.
+
+We finish by observing that the existence of a retraction $S\morf{\varphi}R$ is equivalent to $R$ being a summand of $S$,
+that is there exists another subring $T\subseteq S$ such that $S=R\oplus T$.
+
+Indeed, if $S \morf{\varphi} R$ is a retraction
+then the composition map $R\hookrightarrow S \morf{\varphi} R$ is the identity map because the image of the inclusion
+$R\hookrightarrow S$ is clearly $R$ and $\varphi|_R=\Id_R$. This means that the short exact sequence
+\[
+	0 \ra \ker\varphi \hookrightarrow S \morf{\varphi} R \ra 0
+\]
+is split and thus $S=R\oplus \ker\varphi$ so that $R$ is a summand of $S$.
+
+Conversly if $S=R\oplus T$ for some subring $T$ of $S$, then the projection map
+\[
+	S=R\oplus T \morf{\pi} R \quad f=(r,t)\mapsto r
+\]
+is clearly a retraction.
+
+
+%
+\end{proof}%
+

@@ -1,0 +1,27 @@
+%%% EXERCISE 8
+\subsection*{Exercise 8}
+\subsection*{%
+Prove that the prime ideals of $A$, i.e. $\spec{A}$, has minimal elements with respect
+to inclusion.
+} 
+
+%%% ANSWER
+\begin{proof}%
+We shall prove this by applying Zorn's Lemma $\spec{A}$. Let $\p_1\supseteq\p_2\supseteq\cdots$
+be a descending chain of prime ideals. If we prove that:
+\[
+	\p=\bigcap_{i=1}^{\infty}\p_i \quad\text{is prime},
+\]
+then every descending chain in $\spec{A}$ has a minimum in $\spec{A}$, in this case $\p$.
+By Zorn's Lemma we would then conclude that $\spec{A}$ has minimal elements with respect
+to inclusion.
+
+Thus we have reduced the exercise to proving that the intersection of a descending
+sequence of prime ideals is again prime. Suppose, $fg\in \p$, then there exists an $n\in\NN$
+such that $fg\in\p_n$. Since $\p_n$ is prime then $f\in\p_n\subseteq\p$ or
+$g\in\p_n\subseteq\p$; thus proving that $\p$ is prime.
+
+
+%
+\end{proof}%
+

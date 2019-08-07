@@ -1,0 +1,14 @@
+\begin{defin*}
+  Let $X$ be a topological space, $\Cc$ a category and $\Ff:X\ra\Cc$ a presheaf with restriction
+  morphisms $\rho^U_V(s)=s|_V$. $\Ff$ is a \emph{sheaf} if it satisfies the following axioms:
+  \begin{enumerate}
+  \item[($i$)] Given an open covering $\fU=\{U_i\}_{i\in I}$ of $U$, for any $s,s'\in\Ff(U)$
+    such that $s|_{U_i}=s'|_{U_i}$ for all $i\in I$, then $s=s'$.
+
+  \item[($ii$)] Furthermore, for any family $\{s_i\}\in\prod\Ff(U_i)$ such that
+    \[
+      s_i|_{U_i\cap U_j}=s_j|_{U_i\cap U_j} \quad\forall i,j\in I
+    \]
+    there exists a unique $s\in\Ff(U)$ such that $s|_{U_i}=s_i$.
+  \end{enumerate}
+\end{defin*}

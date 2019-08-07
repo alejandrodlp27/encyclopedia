@@ -1,0 +1,276 @@
+\documentclass[10pt]{report}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,lineno,cite}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{verbatim}
+
+%%% THM, 
+\theoremstyle{plain}\newtheorem{thm}{Teorema}
+\theoremstyle{plain}\newtheorem{lem}[thm]{Lema}
+\theoremstyle{plain}\newtheorem*{conjecture*}{Conjetura}
+\theoremstyle{plain}\newtheorem{cor}[thm]{Corolario}
+\theoremstyle{definition}\newtheorem{defin}{Definici\'on}
+\theoremstyle{definition}\newtheorem*{defin*}{Definici\'on}
+\theoremstyle{remark}\newtheorem{claim}{Proposici\'on}
+\theoremstyle{remark}\newtheorem*{claim*}{Proposici\'on}
+\theoremstyle{remark}\newtheorem*{eje*}{$\mathbf{Ejercicio}$}
+\theoremstyle{remark}\newtheorem{exa}{Ejemplo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Commands
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\p}{\mathfrak{p}} %%% ideal primo p
+\newcommand{\q}{\mathfrak{q}} %%% ideal primo q
+\newcommand{\OO}{\mathcal{O}} %%% gavilla de funciones regulares
+
+\newcommand{\V}[1]{\mathbb{V}(#1)}
+\newcommand{\spec}[1]{\text{Spec}(#1)}
+\newcommand{\cod}[1]{\text{ht}(#1)}
+
+\newcommand{\zero}{\mathbf{0}} %%% ideal 0
+
+\newcommand{\abs}[1]{\left| #1 \right|} %%% Absolute Value
+\newcommand{\gen}[1]{\langle #1 \rangle} %%% Angled braces to denote a generated substructure
+\newcommand{\dist}[1]{\text{dist}\left( #1 \right)} %%% Distance
+
+
+%%% ARROWS
+\newcommand{\then}{\Longrightarrow}
+\newcommand{\onlyif}{\Longleftarrow}
+%\newcommand{\iff}{\Longleftrightarrow}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\rai}{\rightarrow\infty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Margins
+
+\addtolength{\hoffset}{-2cm}
+\addtolength{\textwidth}{4cm}
+\addtolength{\voffset}{-2cm}
+\addtolength{\textheight}{4cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\begin{document}
+
+\begin{comment}
+\begin{eje*}(9.17)
+Sean $A\subset B$ una extensi\'on de anillos, $\q\in\spec{B}$ y $\p=\q\cap A$. Prueba que:
+	\begin{enumerate}
+		\item Si $A\subset B$ tiene el ``going-down property'', entonces $\cod{\q}\geq\cod{\p}$.
+		\item Supongamos que para todo primo $\p'\subset \p$ y $\q_1,q_2\in\spec{B}$ tales que $\q_1\subseteq\q_2$
+		y $\q_1\cap A=\p'=\q_2\cap A$ tenemos que $$q_1\subseteq \q_2\quad\then\quad \q_1=\q_2,$$
+		entonces $\cod{\q}\geq\cod{\p}$.
+	\end{enumerate}
+\end{eje*}
+
+\begin{proof} Sean $\q\in\spec{B}$ y $\p=\q\cap A$,
+
+(1) Si $\cod{\p}=n$, existe una cadena maximal de primos $\p_0\subseteq\cdots\subseteq\p_n=\p$. Como $A\subset B$ tiene
+el ``going-down property'' y $\p=\q\cap A$, existe un primo $\q_{n-1}\in\spec{B}$ que contrae a $\p_{n-1}$ tal que
+$\q_{n-1}\subseteq\q_n=\q$. Por lo tanto, inductivamente podemos crear una cadena
+$$\q_0\subseteq\cdots\subseteq\q_n=\q  \quad\text{con}\quad  \q_i=\p_i\cap A$$
+de primos de $B$. Como $\cod{\q}$ es la longitud m\'axima de tales cadenas, concluimos $\cod{\q}\geq n=\cod{\p}$.
+	
+(2) Supongamos que $\cod{\q}=m$ y que $\q_0\subseteq\cdots\subseteq\q_m=\q$ es una cadena maximal de primos (i.e. distintos
+entre s\'i). Como la contracci\'on respeta inclusiones y primalidad tenemos que:
+$$\q_0\cap A\subseteq\cdots\subseteq\q\cap A \quad\equiv\quad \p_0\subseteq\cdots\subseteq\p_m=\p$$
+Por hip\'otesis cada $\p_i$ es distinto porque, como $\q_i\neq\q_j$, necesariamente $\q_i\cap A\neq\q_j\cap A$ porque
+de lo contrario tendr\'iamos que $\q_i=\q_j$. Por definici\'on de altura concluimos $\cod{\p}\geq m=\cod{\q}$.
+\end{proof}
+\hline
+
+
+
+\begin{eje*}
+Prueba que si $A$ es DFU, entonces $A[x]$ es DFU.
+\end{eje*}
+
+\begin{proof}
+Como:
+\begin{equation}\label{dfu}
+	B \;\text{es DFU} \quad\iff\quad \text{todo elemento irreducible de}\; B\; \text{es primo},
+\end{equation}
+basta probar que si $f\in A[x]$ es irreducible y $f\mid gh$ entonces $f\mid g$ o $f\mid h$ para $g,h\in A[x]$.
+(La proposici\'on \ref{dfu} es v\'alida si factorizaci\'on en irreducibles es posible en $B=A[x]$, pero por inducci\'on
+sobre el grado, esto es f\'acil de ver: para $\deg f=0$ es claro porque implica que $f\in A$ y \'este es DFU; para $n$,
+descomponemos $f=ab$ con $\deg a,\deg b\leq f$, juntamos las factorizaciones de $a$ y de $b$ para obtener una para $f$).
+
+Sea $f=a_n x^n+\cdots +a_0\in A[x]$ irreducible. Si $n=0$ entonces $f$ es irreducible en $A$ y as\'i es primo en $A$ y
+acabamos. Ahora asumimos que $n>0$.
+
+Si $K=\kappa(A)$ es el campo de fracciones de $A$, afirmamos que $f$, como elemento de $K[x]$, es irreducible. Si $f=g_1 g_2$
+con $g_i \in K[x]$, podemos cancelar denominadores y reordenar los coeficientes para obtenener:
+$f=\mu_1 g_1 \cdot \mu_2 g_2$ con $\mu_i\in A$ y $\mu_i g_i\in A[x]$. Esto es una contradicci\'on porque $f\in A[x]$ es
+irreducible (aqu\'i estoy asumiendo que $f$ es primitivo, i.e. $(a_0,\ldots,a_0)=1$, para que el reordenamiento sea posible.
+Si $f$ no fuese primitivo no ser\'ia irreducible). Como $f\in K[x]$ es irreducible, tambi\'en es primo
+(ya que $K[x]$ es DFU por ser DIP).
+
+Ahora probamos que $f\in A[x]$ es primo. Supongamos que $f\mid gh$ con $g,h\in A[x]$. Visto como una descomposici\'on en
+$K[x]$ podemos asumir sin p\'erdida de generalidad que $f\mid g$ como polinomios de $K[x]$, es decir, existe un $g'\in K[x]$
+tal que $fg'=g$. Si cancelamos denominadores y reordenamos los coeficientes (esto se puede porque $f$ es irreducible) obtenemos
+una factorizaci\'on $f(\mu'g')=g$ como polinomios de $A[x]$. Por lo tanto $f\mid g$ en $A[x]$ y concluimos que $f$ es primo.
+\end{proof}
+\hline
+\end{comment}
+
+
+\begin{eje*}(11.8)
+Sea $A$ un anillo, $X=\spec{A}$ su espectro, $U\subseteq X$ un abierto y $X_g:=X-\mathbb{V}(g)$ el abierto b\'asico asociado
+a $g\in A$. Ahora, si $g\not\in\q$ entonces bajo el morfismo natural $A\ra A_{\q}$, la imagen de $g$ es una unidad entonces
+la propiedad universal de la localizaci\'on nos garantiza la existencia de un \'unico morfismo $\rho_{g\q}:A_g\ra A_{\q}$.
+Definimos:
+\[
+	\OO_U:=\{ \{f_{\p}\}_{\p\in U} \mid \forall \p\in U, \exists g\not\in\p\;\text{y}\; f\in A_g\;\text{tal que}\;
+	\forall \q\in X_g, f_{\q}=\rho_{g\q}(f)\}\subseteq \prod_{\p\in U}A_{\p}
+\]
+\begin{enumerate}
+
+	\item Si $A$ es un dominio entero, entonces $$\OO_U\cong \bigcap_{\p\in U} A_{\p}\subseteq K(A)$$ donde $K(A)$ es su
+	campo de fracciones.
+	
+	\item Sea $V\subseteq U$ un abierto de $U$. Demuestra que la proyecci\'on:
+	$$\prod_{\p\in U} A_{\p} \ra \prod_{\p\in V} A_{\p}$$ induce un morfismo $\rho_{UV}:\OO_U \ra \OO_V$.
+	
+	\item Demuestra que $\{\OO_U\}$ junto con las restricciones $\rho_{UV}$ forman una gavilla sobre $X$.
+ 	
+	\item Demuestra que $\OO_X\cong A$.
+\end{enumerate}
+\end{eje*}
+
+\begin{proof}
+(1) Recordemos que si $f\in \cap A_{\p}\subseteq K(A)$, es decir que $f=a/b$ con $b\neq0$ entonces para cada $\p\in U$
+tenemos la inclusi\'on $\iota_{\p}:\cap A_{\p} \ra A_{\p}$. Notemos que, como elemento de $A_{\p}$, $f$ no necesariamente
+preserva su representaci\'on $f=a/b$, pero sigue siendo el mismo elemento porque $\iota_{\p}$ es una inclusi\'on, es decir,
+si $\iota_{\p}(f)=c/d$, entonces $c/d=a/b$ lo cual implica que $ad-bc=0$ porque $A$ es un dominio entero.
+
+Con esto definimos
+\[
+	\varphi:\bigcap_{\p\in U} A_{\p} \ra \OO_U,\quad \varphi(f)=\left\{\iota_{\p}(f)\right\}_{\p\in U}\in \prod_{\p\in U} A_{\p}
+\]
+Para probar que $\varphi$ es un isomorfismo, debemos probar tres cosas:
+
+	Primero probamos que est\'a bien definida esta funci\'on. Por la propiedad universal del producto, sabemos que
+	efectivamente $\varphi(f)\in\prod A_{\p}$. Para ver que $\varphi(f)\in\OO_U$ fijemos un primo $\p\in U$ y escribimos
+	$f=\iota_{\p}(f)=a/g$, como elemento de $K(A)$, con $g\not\in\p$. Ahora sea $\q\in X_g$ arbitraria. Como hemos mencionado,
+	existe un \'unico morfismo $\rho_{g\q}:A_g \ra A_{\q}$ que es inyectivo gracias a que $A$ es dominio. Por lo tanto
+	podemos pensar que $\rho_{g\q}$ es la inclusi\'on $A_g\subseteq A_{\q}$ dentro de $K(A)$ y as\'i tenemos que:
+	\[
+		\rho_{g\q}(f)=f=\iota_{\q}(f)
+	\]
+	donde cada parte de la igualdad lo vemos como un elemento de $A_{\q}$. Hemos probado que para todo $\p\in U$, existe una
+	$g\not\in\p$ (i.e. el denominador de $f$ en $A_{\p}$) tal que para toda $\q\in X_{g}$ se tiene que
+	$f_{\q}:=\iota_{\q}(f)=\rho_{g\q}(f)$ (aqu\'i estamos pensando en $f=a/g$ como elemento de $A_g$).
+	
+	Probar que $\varphi$ es inyectiva es f\'acil, pues si $\varphi(f)=\{\iota_{\p}(f)\}_{\p\in U}=\{0\}_{\p\in U}$ entonces
+	para cada $\p\in U$ tenemos que $f=0$ como elemento de $A_{\p}$, es decir que existe un $v_{\p}\not\in \p$ tal que
+	$f v_{\p}=(a v_{\p})/b=0$ como fracci\'on de $K(A)$. Como $A$ es un dominio entero concluimos que necesariamente $a=0$
+	y as\'i $f=0$.
+	
+	Ahora probamos que $\varphi$ es sobreyectiva. Sea $\{f_{\p}\}\in\OO_U$. Para toda $\p\in U$ existen $a=a(\p)\in A$,
+	$g=g(\p)\not\in \p$ y $f=f(\p)\in A_{g(\p)}$ tales que $f_{\q}=\rho_{g\q}(f)$ para toda $\q\in X_g$.
+	Por lo tanto tenemos que $\{X_{g(\p)}\}_{\p\in U}$ forma una cubierta abierta de $U$ de la cual extraemos una
+	cubierta finita: $X_{g_1},\ldots, X_{g_n}$.
+	
+(2) Como $\OO_U$ es un subanillo de $\prod A_{\p}$, basta probar que la proyecci\'on $\pi:\prod_U A_{\p} \ra \prod_V A_{\p}$,
+restringido a $\OO_U$, tiene como contradominio a $\OO_V$. Para esto sea $s=\{f_{\p}\}_{\p\in U}$, entonces
+\[
+	s \xrightarrow{\pi} \{f_{\p}\}_{\p\in V}.
+\]
+
+Para probar que $\pi(s)\in\OO_V$, damos $\p\in V$ arbitrario. Como $V\subseteq U$ y como $\{f_{\p}\}_{\p\in U}\in \OO_U$, entonces
+existe una $g=g(\p)\not\in \p$ y una $f\in A_g$ tal que $\rho_{g\q}(f)=f_{\q}$ para toda $\q\in U$. Observemos que si nos
+restringimos a $V$, la misma $g$ y la misma $f$ funcionan:
+\[
+	\exists g\not\in \p\;\text{y}\;f\in A_g \;\text{tal que}\; \rho_{g\q}=f_{\q}\;\; \forall \q\in V.
+\]
+Por lo tanto $\pi(s)=\{f_{\p}\}_{\p\in V}\in\OO_V$.
+
+(3) Para probar que $\{\OO_U\}_{U\subseteq X}$ junto con las $\rho_{UV}$ forman una gavilla. El hecho que sea pregavilla se sigue
+inmediatamente de que los morfismos $\rho_{UV}$ son restricciones de las proyecciones can\'onicas:
+\[
+	\rho_{UV}=\pi_{UV}\mid_{\OO_U}\quad\text{donde}\quad \pi_{UV}:\prod_{\p\in U}A_{\p} \ra\prod_{\p\in V} A_{\p}
+\]
+Estas proyecciones cumplen trivialmente las propiedades funtoriales de ser pregavilla.
+
+Ahora probamos las dos caracter\'isticas de ser gavilla:
+
+Sea $U\subseteq X$ un abierto con una cubierta abierta $U=\cup U_{\lambda}$. Tomemos $s=\{f_{\p}\}_{\p\in U}$ una secci\'on
+de $\OO_U$ tal que $\rho_{\lambda}(s)=\rho_{U U_{\lambda}}(s)=\{0\}_{\p\in U_{\lambda}}$ para toda $\lambda$. Entonces para
+toda $\p\in U$, existe una $\lambda$ tal que $\p\in U_{\lambda}$ y as\'i, la coordenada $f_{\p}$ de $s$, bajo $\rho_{\lambda}$
+se hace $0$. Pero $\rho_{\lambda}$ es una proyecci\'on can\'onica, por lo tanto necesariamente $f_{\p}=0$. Como esto es para
+toda $\p\in U$, tenemos que $s=\{f_{\p}\}_{\p\in U}=\{0\}=0$.
+
+Ahora sea $s_{\lambda}=\{f_{\p}^{\lambda}\}_{\p\in U_{\lambda}}\in \OO_{U_{\lambda}}$ una familia de secciones tales que:
+\[
+	\rho_{U_{\lambda} U_{\lambda}\cap U_{\mu}}(s_{\lambda})=\rho_{U_{\mu} U_{\lambda}\cap U_{\mu}}(s_{\mu})
+\]
+para toda $\lambda,\mu$. Definimos $s=\{f_{\p}\}_{\p\in U}$ tal que $f_{\p}=s_{\lambda}(\p)=f_{\p}^{\lambda}$ si
+$\p\in U_{\lambda}$. Esta
+definici\'on para $f_{\p}$ est\'a bien definido porque si $\p\in U_{\lambda}\cap U_{\mu}$, entonces la ecuaci\'on anterior
+nos dice que la coordenada referente a $\p$ de $s_{\lambda}$ y de $s_{\mu}$ coinciden, i.e. $s_{\lambda}(\p)=s_{\mu}(\p)$.
+Esto sucede para cada $\lambda,\mu$ y cada $\p\in U_{\lambda}\cap U_{\mu}$. Por lo tanto est\'a bien definido $s$ y por definici\'on
+$\rho_{U U_{\lambda}}(s)=s_{\lambda}$ para cada $\lambda$.
+
+(4) Sea $f\in A$, sabemos que para cada $\p\in X$, hay un morfismo can\'onico de localizaci\'on $l_{\p}:A\ra A_{\p}$ que hace:
+$l_{\p}(f)=f/1\in A_{\p}$. Con esto definimos:
+\[
+	\psi:A\ra \OO_X\quad \psi(f)=\{l_{\p}(f)\}_{\p\in X}=\{f/1\}_{\p\in X}
+\]
+Como cada $l_{\p}$ es una funci\'on bien definida, la propiedad universal del producto nos garantiza que $\psi$ est\'a bien
+definida. Para ver que el contradominio es efectivamente $\OO_X$, fijamos una $\p\in X$. Sabemos que $1\not\in\p$ y que
+$f\in A_1=A$. Por \'ultimo sea $\q\in X$ (claramente $1\not\in\q$). En la definici\'on de $\rho_{g\q}$ estamos tomando $g=1$,
+entonces $\rho_{1\q}$ coincide con la localizaci\'on can\'onica: $l_{\q}=\rho_{1\q}$ entonces trivialmente tenemos que
+$f_{\q}:=l_{\q}(f)=\rho_{1\q}(f)$ y as\'i $\psi(f)\in\OO_X$.
+
+Para la inyectividad supongamos que $\psi(f)=\{0\}_{\p\in X}$, es decir que $l_{\p}(f)=f/1=0$ en cada $A_{\p}$. Por lo
+tanto para toda $\p\in X$, existe una $v=v(\p)\not\in\p$ tal que $vf=0$ en $A$, es decir que $(0:f)\cap \p^c\neq\emptyset$
+o equivalentemente $(0:f)\not\subseteq\p$ para toda $\p\in X$. Por lo tanto $\V{(0:f)}=\emptyset$ lo cual sucede si y s\'olo
+si $1\in(0:f)$. De esto se sigue inmediatamente que $f=1\cdot f=0$ y que $\psi$ es inyectiva.
+
+Probamos la sobreyectividad: sea $s=\{f_{\p}\}_{\p\in X}$ una secci\'on en $\OO_X$. Para cada $\p\in X$, sabemos que existe
+un abierto b\'asico $X_{g_i}$ alrededor de $\p$ junto con una fracci\'on $a_i/g_i^{n_i}\in A_{g_i}$ tal que para toda
+$\q\in X_{g_i}$, $f_{\q}=\rho_{g_i\q}(a_i/g_i^{n_i})=a_i/g_i^{n_i}$. Esta \'ultima igualdad se da porque, como $g_i\not\in\q$,
+$g_i$ es unidad de $A_{\q}$ y as\'i $(a_i/g_i^{n_i})/1=a_i/g_i^{n_i}$ en $A_{\q}$. Como $X_{g_i}=X_{g_i^{n_i}}$, podemos
+reescribir esta fracci\'on de tal manera que el exponente $n_i=1$ ya que en $A_{\q}$, $g_i$ es una unidad. Con todo esto
+decimos que $s$ est\'a representado por $a_i/g_i$ en el abierto $X_{g_i}$.
+
+Hacemos una \'ultima observaci\'on: en las intersecciones $X_{g_i}\cap X_{g_k}=X_{g_i g_k}$, ambas fracciones $a_i/g_i$ y
+$a_k/g_k$ representan a $s$, entonces existe una potencia $n_{ij}$ tal que $(g_i g_k)^{n_{ij}}(a_i g_k-a_k g_i)=0$. Si
+tomamos $N=\max{n_{ij}}$, entonces
+
+\begin{equation}\label{uno}
+	(g_i g_k)^N (a_i g_k-a_k g_i)=0 \quad\then\quad (g_k)^{N+1} (a_i g_i^N)-(g_i)^{N+1}(a_k g_k^N)=0.
+\end{equation}
+
+Por lo tanto si ahora sustituimos la representaci\'on de $s$ en $X_{g_i}$ por:
+\[
+	\frac{a_i}{g_i} \ra \frac{a_i g_i^{N}}{g_i^{N+1}}
+\]
+la representaci\'on $a_i/g_i$ no cambia pero la ecuaci\'on \ref{uno} nos dice que ahora 
+
+\begin{equation}\label{dos}
+	(g_k)^{N+1} (a_i g_i^N)-(g_i)^{N+1}(a_k g_k^N)=0 \quad\ra\quad g_k a_i - g_i a_k=0
+\end{equation}
+
+Claramente $\{X_{g_i}\}$ es una cubierta abierta de $X$, pero como $X$ es cuasi-compacto (por el teorema de la partici\'on
+de la unidad), sin p\'erdida de generalidad podemos asumir que la cubierta es finita, i.e. $X=X_{g_1}\cup\cdots\cup X_{g_n}$,
+y adem\'as:
+\[
+	1=\mu_1 g_1+\cdots+\mu_n g_n\quad\text{para algunas}\quad \mu_1,\ldots,\mu_n\in A.
+\]
+
+Definimos $a=\mu_1 a_1+\cdots+\mu_n a_n$ y observemos que:
+\[
+	g_i a= \sum_{k=1}^{n}\mu_k g_i a_k = \sum_{k=1}^{n}\mu_k g_k a_i = a_i
+\]
+donde hemos usado que $g_k a_i=g_i a_k$ (la ecuaci\'on \ref{dos}). Esta \'ultima igualdad nos dice que en $A_{g_i}$, tenemos:
+$a/1=a_i/g_i$. Por lo tanto $l_{g_i}(a)=a_i/g_i$ y as\'i tenemos que $\psi(a)=s$ sobre todas las $X_{g_i}'s$, i.e. sobre $X$.
+
+\end{proof}
+
+
+
+\end{document}

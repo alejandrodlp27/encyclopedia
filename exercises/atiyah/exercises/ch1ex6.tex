@@ -1,0 +1,32 @@
+%%% EXERCISE 6
+\subsection*{Exercise 6}
+\subsection*{%
+  A ring $A$ is such that every prime ideal not contained in the nilradical contains a
+  nonzero idempotent, that is for every ideal $I\leq A$ we have:
+  \[
+    I\not\subseteq \sqrt{0} \quad\then\quad \exists e\in I \;\text{such that}\; e^2=e\neq 0.
+  \]
+  Prove that $\sqrt{0}=\jac{A}$ that is the Jacobson Radical is equal to the nilradical.
+}
+
+%%% ANSWER
+\begin{proof}%
+
+We know that (cf. Exercise 4) for any ring $A$, $\sqrt{0}\subseteq\jac{A}$. So no we prove
+equality by contradiction: suppose $\sqrt{0}$ is contained strictly in $\jac{A}$
+and set $x\in\jac{A}-\sqrt{0}$. Any such element satisfies $\gen{x}\not\subseteq \sqrt{0}$
+so that by hypothesis the ideal $\gen{x}$ contains a nonzero idempotent $e$. Thus $x$
+divides $e$ and we have the following formula:
+\begin{equation}\label{eq:idempotent}
+	e=\la x =\la^2 x^2 = e^2 \quad\then\quad \la x(1-\la x)=0.
+\end{equation}
+Since $x\in\jac{A}$ it satisfies the following equivalent property:
+\[
+	x\in\jac{A} \quad\iff\quad 1-\la x\;\text{is a unit for all}\; \la\in A.%
+	\text{(Prop. 1.9, pg 6)}
+\]
+Thus we may cancel the factor inside the parenthesis of equation (\ref{eq:idempotent}) and
+conclude $e=\la x =0$; a contradiction. Thus $\jac{A}=\sqrt{0}$.
+%
+\end{proof}%
+

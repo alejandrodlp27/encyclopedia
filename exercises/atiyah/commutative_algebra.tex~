@@ -1,0 +1,11 @@
+\documentclass[10pt]{report}
+\usepackage{template,algebra}
+\usepackage{tikz-cd}
+
+\begin{document}
+
+\chapter*{1: Rings and Ideals}
+%\input{chapters/1_rings/1_1}
+
+\end{document}
+

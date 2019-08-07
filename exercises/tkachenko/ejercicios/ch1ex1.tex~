@@ -1,0 +1,23 @@
+%%% EJERCICIO 1
+\subsection*{Ejercicio 1}
+\subsection*{%
+  Sea $H$ un subgrupo abeliano de un grupo topol\'ogico $G$ de Hausdorff. Si $H$ es denso, entonces $G$ tambi\'en
+  es abeliano. Es decir que para verificar la conmutativididad de un grupo, basta verificarlo para un subgrupo
+  denso.
+} 
+
+%%% ANSWER
+\begin{proof}%
+  Sea $f:G\times G\ra G$ definido por $(x,y)\mapsto xyx^{-1}y^{-1}$. Claramente es continua porque
+  es la composici\'on de las funciones continuas:
+  \[
+    \begin{tikzcd}
+      G\times G \arrow[r,"(\Id_{G\times G},\Id_{G\times G})"] &
+      (G\times G)\times(G\times G) \arrow[r,"\Id_{G\times G}\times(\iota\times\iota)"] &
+      (G\times G)\times(G\times G) \arrow[r,"\mu\times\mu"] &
+      G\times G \arrow[r,"\mu"]
+    \end{tikzcd}
+  \]
+  
+\end{proof}%
+

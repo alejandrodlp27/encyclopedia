@@ -1,0 +1,66 @@
+%%% EXERCISE 1.22
+\HRule
+\subsection*{Exercise 1.2 (The Twisted Cubic Curve)}
+\subsection*{%
+  Let $X=\{(t,t^2,t^3)\in\AAA^3\mid t\in k\}$. Prove that
+  \begin{enumerate}
+  \item  $X=\VV(y-x^2,z-x^3)$ has dimension 1.
+  \item $\II(X)=\gen{y-x^2,z-x^3}$.
+    \item $A(X)\cong k[x]$.
+  \end{enumerate}
+} 
+
+%%% ANSWER
+\begin{proof}$\;$\\
+  \begin{enumerate}
+  \item The inclusion $X\subseteq\VV(y-x^2,z-x^3)$ is clear. The other inclusion
+    follows from
+    \[
+      (x,y,z)\in\VV(y-x^2,z-x^3)\quad\then\quad
+      y=x^2\;\; , \;\; z=x^3 \quad\then\quad
+      (x,y,z)=(x,x^2,x^3)\quad (x\in k).
+    \]
+  \item The inclusion $\supseteq$ is clear since $y-x^2,z-x^3\in\II(X)$. For the other
+    inclusion observe that any monomial $x^{\alpha}y^{\beta}z^{\gamma}\in k[x,y,z]$ can be
+    writen as
+    \begin{align*}
+      x^{\alpha}y^{\beta}z^{\gamma} & = x^{\alpha}(x^2+y-x^2)^{\beta}(x^3+z-x^3)^{\gamma} \\
+      & = x^{\alpha}\Big( x^{2\beta}+(y-x^2)\underset{h(x,y)}%
+      {\underbrace{\sum_{i=0}^{\beta-1}\binom{\beta}{i}x^{2i}(y-x^2)^{\beta-i-1}}}
+    \Big) \Big(x^{3\gamma}+(z-x^3)\underset{h'(x,y)}%
+    {\underbrace{\sum_{i=0}^{\gamma-1}\binom{\gamma}{i}x^{3i}(z-x^3)^{\gamma-i-1}}}\Big)\\
+    & = x^{\alpha+2\beta+3\gamma}+(y-x^2)\big(\underset{h_1(x,y,z)}%
+    {\underbrace{x^{\alpha+3\gamma}h(x,y)+(z-x^3)x^{\alpha}h(x,y)h'(x,y)}} \big)+
+    (z-x^3)\big(\underset{h_2(x,y,z)}{\underbrace{x^{\alpha+2\beta}h'(x,y)}}\big) \\
+    & = x^N+(y-x^2)h_1(x,y,z)+(z-x^3)h_2(x,y,z).
+    \end{align*}
+    Thus if $x^{\alpha}y^{\beta}z^{\gamma}\in\II(X)$ then $y-x^2=0=z-x^3$ and the above
+    expression reduces to $x^{\alpha}y^{\beta}z^{\gamma}=x^N$. Therefore
+    \[
+      0=x^{\alpha}y^{\beta}z^{\gamma}|_X=x^N|_X \quad\then\quad
+      x^N|_X(t,t^2,t^3)=t^N=0\quad\forall t\in k
+    \]
+    \[
+      \therefore\quad x^{\alpha}y^{\beta}z^{\gamma}=(y-x^2)h_1(x,y,z)+(z-x^3)h_2(x,y,z)\in\gen{y-x^2,z-x^3}.
+    \]
+    Since this happens for every monomial of $\II(X)$ then it happens for any polynomial
+    because $f=\sum_i \la_i x^{\alpha_i}y^{\beta_i}z^{\gamma_i}$. Therefore
+    $\II(X)\subseteq\gen{y-x^2,z-x^3}$.
+  \item The morphism $\varphi:\AAA^1\ra X$ defined as $\varphi(t)=(t,t^2,t^3)$ is an
+    isomorphism with inverse $(t,t^2,t^3)\mapsto t$. Thus $A(X)\cong A(\AAA^1)=k[x]$.
+  \end{enumerate}
+
+\begin{figure}[ht] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURA NSIMPLEJOS_GEOMETRICOS
+  \centering
+  \caption{Twisted Cubic Curve over $k=\RR$}
+%  \label{fig:twisted_cubic_curve}
+  \begin{subfigure}{0.48\textwidth}
+%    \includegraphics[scale=0.4]{twisted_cubic_curve_1}    
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+%    \includegraphics[scale=0.35]{twisted_cubic_curve_2}    
+  \end{subfigure}
+\end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\end{proof}%
+

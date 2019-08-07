@@ -1,0 +1,4 @@
+\begin{defin*}
+	Let $X$ be a topological space viewed as a category, and $\Cc$ a category. A \emph{presheaf} over $X$
+	is a contravariant functor $\Ff:X\ra\Cc$; more precisely it consists of the data
+\end{defin*}

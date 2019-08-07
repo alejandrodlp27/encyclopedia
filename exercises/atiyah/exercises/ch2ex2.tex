@@ -1,0 +1,29 @@
+%%% EXERCISE 2
+\subsection*{Exercise 2}
+\subsection*{%
+Let $A$ be a ring, $I$ an ideal and $M$ an $A$-module. Prove that $(A/I)\otimes_A M\cong M/IM$.
+} 
+
+%%% ANSWER
+\begin{proof}%
+Since tensoring by $M$ is right-exact, then the exact sequence $\shortexact{I}{A}{A/I}$ induces the exact
+sequence:
+\[
+	I\otimes_A M\lra A\otimes_A M \lra \left(\frac{A}{I}\right)\otimes_A M \lra 0.
+\]
+Observe that $A\otimes M$ and $M$ are canonically isomorphic as $A$-modules via the natural map
+$a\otimes x \mapsto ax$. Also, this map restricted to the $A$-submodule $I\otimes M$ has image
+$IM$ and thus $I\otimes M\cong IM$. Our original exact sequence is therefore turned into:
+\[
+	IM \lra M \lra \paren{\frac{A}{I}}\otimes M \lra 0.
+\]
+
+By the exactness property,
+\[
+	\frac{M}{IM}\cong \paren{\frac{A}{I}}\otimes M,
+\]
+and we are done
+
+%
+\end{proof}%
+

@@ -1,0 +1,25 @@
+\begin{defin}
+  A \emph{group} is a set $G$ together with a function $\mu:G\times G\ra G$ called a
+  \emph{binary operation}, defined as $(x,y)\mapsto xy$, that satisfies the following properties:
+  \begin{enumerate}
+  \item (Associativity) For all $x,y,z\in G$, $(xy)z=x(yz)$.
+  \item (Identity element) There exists an element $1\in G$, called the \emph{identity}, such
+    that $1x=x=x1$ for all $x\in G$.
+  \item (Existence of Inverses) For all $x\in G$ there exists an element $y\in G$ (denoted
+    by $x^{-1}$, see property \ref{prop:operation_inverse})
+    such that $xy=1=yx$.
+  \end{enumerate}
+  A group is called an \emph{abelian group} if furthermore the operation is commutative, that
+  is $xy=yx$ for all $x,y\in G$. In this case the notation becomes additive:
+  $xy\leftrightarrow x+y$, $x^{-1}\leftrightarrow -x$ and for $x^n:=x\cdots x$ we denote
+  $E \leftrightarrow nx$.
+\end{defin}
+
+\begin{properties}$\;$\\
+  \begin{enumerate}
+  \item Identity elements are necesarily unique: if $1,1'\in G$ are identity elements then
+    $1=1'1=11'=1'$ where the first two equalities hold becuase $1'$ is an identity element
+    and the third equality holds because $1$ is an identity.
+    \item \label{prop:operation_inverse} If $y,z\in G$ are inverses of $x$ then $xy=1=yx$
+  \end{enumerate}
+\end{properties}

@@ -1,0 +1,23 @@
+%%% EXERCISE 1
+\subsection*{Exercise 1}
+\subsection*{%
+Let $x$ be a nilpotent element of a ring $A$, ie. $x\in\sqrt{0}$. Show that $1+x$ is a unit of $A$
+and that in general, the sum of a unit and a nilpotent is a unit.
+} 
+
+%%% ANSWER
+\begin{proof}%
+Observe that the factorization ($n$ odd)
+\[
+	1+x^n=(1+x)(1-x+x^2-\cdots+(-1)^{n-1}x^{n-1})
+\]
+implies that, if $x$ is nilpotent, for sufficiently large $n$ the second factor on the right hand
+side is the multiplicative inverse of $1+x$ because the left hand side simplifies to 1 since $x^n=0$
+for sufficiently large $n$.
+
+Now let $u$ be any unit with inverse $v$, and $y$ any nilpotent element. Then $v(u+y)=1+vy$ so that
+if we set $x=vy$ (which is clearly nilpotent) in the previous equation, we can conclude that $1+vy$
+is a unit. Thus $u+y=u(1+vy)$ is also a unit and we are done.
+%
+\end{proof}%
+

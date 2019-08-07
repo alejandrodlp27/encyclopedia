@@ -1,0 +1,16 @@
+%%% EXERCISE 7
+\subsection*{Exercise 7}
+\subsection*{%
+Let $A$ be a ring such that for all $x\in A$ there is an $n=n(x)>1$ such that
+$x^n=x$. Prove that every prime ideal is maximal and thus $\jac{A}=\sqrt{0}$.
+} 
+
+%%% ANSWER
+\begin{proof}%
+Let $\p$ be a prime ideal of $A$ and consider $x+\p\in A/\p$ any nonzero element.
+By hypothesis there is an $n\in\NN$ such that $x^n=x$ or equivalently $x(x^{n-1}-1)=0$.
+Since $A/\p$ is an integral domain, we may cancel out the $x$ so that $x^{n-1}+\p=1+\p$.
+We conclude that $x$ is a unit and $A/\p$ is a field. Thus $\p$ is maximal. 
+%
+\end{proof}%
+

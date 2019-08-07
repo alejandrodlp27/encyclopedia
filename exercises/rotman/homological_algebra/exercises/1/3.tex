@@ -1,0 +1,30 @@
+\HRule
+\subsection*{Exercise 3}
+\subsection*{%
+Let $F:\mathcal{A}\ra\mathcal{B}$ and $G:\mathcal{B}\ra\mathcal{C}$ be functors. Prove that if $F$ and $G$ are of the same variance
+then the composite functor $GF:\mathcal{A}\ra\mathcal{C}$ is covariant; if $F$ and $G$ have opposite variance then $GF$ is a
+contravariant functor. In other words, the variance of functors follows a sort of ``law of signs''.
+} 
+
+%%% ANSWER
+\begin{proof}%
+We divide the proof of the first part in two cases: when both $F$ and $G$ are covariant, and when they are both contravariant.
+First assume that $F$ and $G$ are covariant.
+
+Let $f\in\Hom{A,A'}$ with $A,A'\in\mathcal{A}$. Since $F$ is a covariant functor, then $F(A),F(A')\in \mathcal{B}$ and
+$F(f)\in\Hom{F(A),F(A')}$. Furthermore, since $G$ is also a covariant functor then:
+\[
+	GF(A),GF(A')\in\mathcal{C} \quad\text{and}\quad GF(f)\in\Hom{GF(A),GF(A')}
+\]
+and therefore $GF:\mathcal{A}\ra\mathcal{C}$ is a covariant functor.
+
+Next assume that $F$ and $G$ are both contravariant. Then if $f\in\Hom{A,A'}$, since $F$ is contravariant, we have that
+$F(f)\in\Hom{F(A'),F(A)}$. Also, since $G$ is contravariant, we have $GF(f)\in\Hom{GF(A),GF(A)}$ and we can conclude
+that the functor $GF$ is covariant.
+
+To prove the second part we may assume without loss of generality that $F$ is covariant and $G$ is contravariant.
+In this case we have that if $f\in\Hom{A,A'}$ then $F(f)\in\Hom{F(A),F(A')}$. Furthermore, since $G$ is contravariant.
+we have that $GF(f)\in\Hom{GF(A'),GF(A)}$ and thus $GF$ is a contravariant functor. 
+%
+\end{proof}%
+

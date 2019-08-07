@@ -1,0 +1,29 @@
+%%% EXERCISE 12
+\subsection*{Exercise 12}
+\subsection*{%
+Let $(A,\m,k)$ be a local field. Prove that $A$ contains no nontrivial idempotent. That
+is an element $e\neq 0,1$ such that $e^2=e$.
+} 
+
+%%% ANSWER
+\begin{proof}%
+We prove that the only idempotents of $A$ are 0 and 1. Let $e$ be an idempotent of $A$.
+If $e\not\in\m$, then, since $A$ is a local ring, $e$ is a unit. However, an idempotent
+who is also a unit must be 1 because:
+\begin{equation}\label{lem:idempotentunit}
+	e\;\text{is a unit and}\; e^2=e \quad\then\quad e=e^{-1}e^2=e^{-1}e=1.
+\end{equation}
+Thus if $e\not\in\m$ then $e=1$.
+
+Now suppose that $e\in\m$. This means that $1-e\not\in\m$ because, $e+(1-e)=1\not\in\m$,
+and thus $1-e$ is a unit. On the other hand $1-e$ is idempotent because:
+\[
+	(1-e)^2=1-e-e+e^2=1-e-e+e=1-e.
+\]
+By (\ref{lem:idempotentunit}) we necessarily have $1-e=1$ which implies that $e=0$.
+
+We conclude that the only two values $e$ can have are 0 and 1 depending on wether
+$e$ is in $\m$ or not. Thus the local ring $A$ does not contain nontrivial idempotents.
+%
+\end{proof}%
+

@@ -1,0 +1,17 @@
+\documentclass[10pt]{report}
+\usepackage{template}
+\usepackage{tikz-cd}
+
+\begin{document}
+
+\chapter*{2: Schemes}
+%\input{chapters/2_schemes/1_1}
+\input{chapters/2_schemes/1_22}
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

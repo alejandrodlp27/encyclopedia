@@ -1,0 +1,231 @@
+%%% EXERCISE 1.1
+\subsection*{Exersice 1.1}
+\subsection*{Let $(A,+)$ be an abelian group and $X$ a topological space.
+Define the \emph{constant presheaf} associated to $A$ on $X$ as the
+contravariant functor $\F$ such that for all open subsets $U\subseteq X$,
+with $U\neq\emptyset$, we have%
+\[
+	U\morf{\mathfrak{F}}\mathfrak{F}(U)=A
+\]
+together with the restriction maps $\rho_{UV}\equiv\Id_{A}$ for all open
+subsets $V\subseteq U$. Show that the constant sheaf $\mathfrak{A}$ on $X$
+is the sheaf associated to $\F$.} 
+
+%%% ANSWER
+\begin{proof}%
+
+First we define the constant sheaf $\mathfrak{A}$: we endow $A$ with the
+discrete topology and, given an open subset $U\subset X$, define:
+\[
+	\mathfrak{A}(U)=C[U,A]:=\{f:U\ra A| f\;\text{is continuous}\},
+\]
+that is, the abelian group of all continuous funtions from $U$ to $A$. We
+also define the restriction maps $\rho_{UV}$ as the usual restriction of
+functions $\rho_{UV}(f)=f|_V$, whenever $V\subseteq U$ are open sets of $X$.
+
+We make a preliminary, but important observation about the abelian group
+$\mathfrak{A}(U)$. Since $A$ has the discrete topology, 
+the only continuous functions $f:U\ra A$ are locally constant. Indeed, since
+the singleton sets $\{a\}_{a\in A}$ form a basis for $A$, we have:
+\[
+	f(x)=a \quad\then\quad%
+	x\in f^{-1}[\{a\}]\underset{open}{\subseteq} X \quad\then\quad%
+	f\;\;\text{is locally constant}
+\]
+Or in another manner
+\[
+	\mathfrak{A}(U)=C[U,A]\subseteq\{U\morf{f}A\;|\; f\;\text{is locally constant}\}.
+\]
+
+Conversely, if $f:U\ra A$ is locally constant and if $p\in f^{-1}[\{a\}]$,
+for some basic open set $\{a\}$ of $A$, then $f(p)=a$ and thus there is an
+open neighborhood $U_p$ around $p$ such that $f|_{U_p}$ is the constant function
+equal to $a$, i.e. $U_p\subseteq f^{-1}[\{a\}]$. Therefore $f$ is continuous and we
+have the important characterization:%
+%
+\begin{equation}\label{localconstant}
+	\mathfrak{A}(U)=\{U\morf{f}A\;|\; f\;\text{is locally constant}\}.
+\end{equation}
+
+Now we prove that the functor $\mathfrak{A}$ is a sheaf. It clearly is a presheaf
+since the usual restrictions of functions satisfy both $\rho_{UU}(f)=f|_{U}=f$ and
+\[
+	\rho_{VW}(\rho_{UV}(f))=\rho_{VW}(f|_V)=(f|_V)|_{W}=f|_W=\rho_{UW}(f).
+\]
+
+To prove $\mathfrak{A}$ is a sheaf, let $U\subseteq X$ be an open set with an
+open covering $\{U_{\la}\}_{\la\in\Lambda}$. Now, suppose that $f\in\mathfrak{A}(U)$
+is a section such that $f|_{U_{\la}}=\zero\in \mathfrak{A}(U_{\la})$
+for all $\la\in\Lambda$. Thus, if $p\in U$ is an arbitrary point, we have:
+\[
+	x\in U=\bigcup_{\la\in\Lambda}U_{\la} \quad\then\quad %
+	x\in U_{\la}\;\;\text{for some}\;\; \la\in\Lambda \quad\then\quad %
+	f(x)=f|_{U_{\la}}(x)=\zero(x)=0.
+\]
+Thus $f=\zero$ over $U$ and so it defines the zero element of $\mathfrak{A}(U)$.
+
+Next, suppose that there exists elements $f_{\la}\in\mathfrak{A}(U_{\la})$
+such that for all $\la,\mu\in\Lambda$ we have:
+\[
+	f_{\la}|_{U_{\la}\cap U_{\mu}}=f_{\mu}|_{U_{\la}\cap U_{\mu}}.
+\]
+We must now find a section $f\in\mathfrak{A}(U)$ such that $f|_{U_{\la}}=f_{\la}$
+for all $\la\in\Lambda$, that is, $f$ is \emph{represented} by $f_{\la}$
+over $U_{\la}$.
+
+This section $f$ can be constructed by gluing together each $f_{\la}$
+as follows: since $U=\cup U_{\la}$, then for all $x\in U$ we have $x\in U_{\la}$
+for some $\la\in\Lambda$, so we define the section $f$ as $f(x):=f_{\la}(x)$.
+
+By definition, $f$ has the sought after property. This definition
+obviously depends on $\lambda$, so we most prove that $f$ is well
+defined. Indeed, if $\lambda$ and $\mu$ are two valid indices, i.e.
+$x\in U_{\la}\cap U_{\mu}$, then by hypothesis:
+\[
+	f_{\la}(x)=f_{\la}|_{U_{\la}\cap U_{\mu}}(x)= %
+	f_{\mu}|_{U_{\la}\cap U_{\mu}}(x)=f_{\mu}(x)
+\]
+and we conclude that $f$ is well defined.
+
+Lastly, we must prove that $f$ is indeed a section of $U$, that is
+$f\in\mathfrak{A}(U)$ or that $f$ is continuous. Let $A'\subseteq A$ any
+subset ($A$ has the discrete topology) and set $X'=f^{-1}[A']$. Since
+$\{U_{\la}\}$ is an open covering of $U$ we can decompose $X'$ into:
+\[
+	X'=\bigcup_{\la\in\Lambda} (U_{\la}\cap X')
+\]
+where each $U_{\la}\cap X'$ is the inverse image of $f_{\la}\in\mathfrak{A}(U_{\la})$,
+a continuous function. Thus $X'$ is the union of open sets and thus is
+itself an open set. We have proved that $f\in\mathfrak{A}(U)$ and so we
+can conclude that $\mathfrak{A}$ is a sheaf.
+
+Before proving that $\mathfrak{A}$ is the associated sheaf of $\F$, we make a
+final, but important, observation about how $\mathfrak{A}$ and $\F$ are related.
+Since all the constant functions $U\morf{f_a}A$ with $f_a\equiv a$ are locally
+constant, by the characterization of $\mathfrak{A}(U)$ (formula \ref{localconstant}),
+the natural map $a\mapsto f_a$ induces the natural abelian group homomorphism
+from $A$ into $\mathfrak{A}(U)$:
+
+\begin{equation}\label{theta}
+	\F(U)=A\morf{\theta_U} \mathfrak{A}(U) \quad\text{with}\quad%
+	a\mapsto (U\morf{f_a} A)
+\end{equation}
+along with the following (clearly) commutative diagrams:
+\[
+\begin{tikzcd}
+A \arrow[d,"\Id"] \arrow[r,"\theta_U"] & C[U,A] \arrow[d,"\rho_{UV}"] \\
+A \arrow[r,"\theta_V"]      		 & C[V,A]
+\end{tikzcd}
+\]
+and thus $\theta:\F\ra\mathfrak{A}$ is a presheaf morphism.
+
+This gives us a straight forward way to prove that $\mathfrak{A}$ is the
+associated sheaf to the constant presheaf $\F$: the universal
+property of the associated sheaf:
+
+If $\F^+$ is the associated sheaf to the presheaf $\F$ and
+$\varphi: \F\ra\mathfrak{G}$ is a morphism of presheaves, then there exists
+a unique morphism $\psi:\F^+ \ra\mathfrak{G}$ such that $\varphi=\psi\circ\theta$,
+where $\theta:\F\ra\F^+$ is the canonical presheaf morphism from a
+presheaf to its associated sheaf. Equivalently, we have the commutative
+diagram:
+\[
+\begin{tikzcd}
+\F \arrow[rd,"\varphi"'] \arrow[r,"\theta"] & \F^+ \arrow[d,dotted,"\psi"] \\
+		     			   & \mathfrak{G} 
+\end{tikzcd}
+\]
+
+\begin{comment} %%% CHARACTERIZATION OF THE ASSOCIATED SHEAF
+	Recall that the associated sheaf $\F^+$ of $\F$ is defined to be:
+	\[
+		\F^+:=\left.\left\{s=\{s_p\}_{p\in U}\in\prod_{p\in U}\F_p %
+		\right\rvert \forall p\in U,\; \exists V\underset{open}{\subseteq}U, %
+		p\in V,\;\text{and}\; t\in\F(V)\;\text{such that}\; \forall q\in V,\; %
+		s_q=t_q \right\}.
+	\]
+	where $s_q,t_q\in \F_q$ with $\F_q$ the stalk of the presheaf at $q\in U$.
+	We can also think of $s=\{s_p\}$ as a function $U\morf{s} \cup \F_p$ and
+	$s_p$ as the germ of $s$ at $p\in U$. Both interpretations are equivalent. 
+\end{comment}
+
+Let $\F\morf{\varphi}\mathfrak{G}$ be a presheaf morphism represented by the family
+$\{A\morf{\varphi_U}\mathfrak{G}(U)\}_{U\subseteq X}$. If we write $\tau_{UV}$ as the
+restriction morphisms of $\mathfrak{G}$, we also have the following commutative
+diagram:%
+%
+\begin{equation}\label{phi}
+\begin{tikzcd}
+A \arrow[d,"\Id"] \arrow[r,"\varphi_U"] & \mathfrak{G}(U) \arrow[d,"\tau_{UV}"] \\
+A \arrow[r,"\varphi_V"]      		 & \mathfrak{G}(V) 
+\end{tikzcd}
+\end{equation}%
+%
+for any open $V\subseteq U$ in $X$. Or in other words
+$\varphi_V=\tau_{UV}\circ\varphi_U$. Thus, with $\varphi$, we can construct the
+morphism $\psi:\mathfrak{A}\ra\mathfrak{G}$ represented as follows:
+
+If $f:U\ra A$ is a continuous function, then it is locally constant, that is,
+for all $p\in U$ there is an open neighborhood $U_p$ around $p$ such that
+$f|_{U_p}$ is constant, i.e. $f|_{U_p}\equiv a_p$ for some element $a_p\in A$.
+Clearly $U=\cup_{p\in U} U_{p}$.
+
+The family of sections $\varphi_{U_p}(a_p)\in \mathfrak{G}(U_p)$ can be glued together
+because $\mathfrak{G}$ is a sheaf. Indeed, if $x\in U_p\cap U_q$, then $a_p=f(x)=a_q$
+and by (\ref{phi}) we have:
+\[
+	\tau_{U_p U_p\cap U_q}(\varphi_{U_p}(a_p))=\varphi(U_p\cap U_q)(a_p)=%
+	\varphi(U_p\cap U_q)(a_q)=\tau_{U_q U_p\cap U_q}(\varphi_{U_q}(a_p))
+\]
+Thus, by definition, there is a unique section $s\in\mathfrak{G}(U)$ such that
+$\tau_{U U_p}(s)=\varphi_{U_p}(a_p)$ and the map
+\[
+	\mathfrak{A}(U)\morf{\psi_U}\mathfrak{G}(U) \quad\text{with}\quad%
+	f\mapsto s,
+\]
+that glues together the locally constant sections
+$\{\varphi_{U_p}(f|_{U_p}=a_p)\}_{p\in U}$,
+is the sought after map that gives $\mathfrak{A}$ the universal property of the
+associated sheaf to the constant presheaf $\F$.
+
+Immediately we have $\varphi=\psi\circ\theta$ because $\theta$ includes every
+element $a\in A$ as the constant function $f_a\equiv a$ in $\mathfrak{A}(U)$ and,
+since in this case $a=a_p$ for all $p\in U$, we have that:
+\[
+	\tau_{U U_p}(\varphi_U(a))=\varphi_{U_p}(a)  \quad\forall p\in U
+\]
+and thus the glueing together of the local sections $\{\varphi_{U_p}(f_a)\}_{p\in U}$
+gives the section $\varphi_U(a)$. In other words:
+\[
+	\psi_U(\theta_U(a))=\psi_U(f_a)=\varphi_U(a).
+\]
+
+Now we must prove that the following diagram is commutative:
+\begin{equation}\label{cdone}
+\begin{tikzcd}
+\mathfrak{A}(U) \arrow[d,"\rho_{U V}"] \arrow[r,"\psi_U"] & \mathfrak{G}(U) \arrow[d,"\tau_{UV}"] \\
+\mathfrak{A}(U) \arrow[r,"\psi_V"]      		 & \mathfrak{G}(V) 
+\end{tikzcd}
+\end{equation}
+
+To this end, suppose that $f\in\mathfrak{A}(U)$, then the abelian group homomorphism
+$\psi_U$ glues together the family of section $\{\varphi_{U_p}(a_p)\}_{p\in U}$ where
+$f|_{U_p}\equiv a_p$; we call this section $s\in\mathfrak{G}(U)$ so that $\psi_U(f)=s$.
+
+Now, If we restrict $f$ to $V$ and then for all $p\in V$ there exists an open
+neighborhood $V_p=U_p\cap V$ around $p$ such that $(f|_V)|_{V_p}\equiv a_p$, thus the
+family of sections $\{\varphi_{V_p}(a_p)\}_{p\in V}$ glues together into the section
+$s'\in\mathfrak{G}(V)$. By \ref{phi}, we have that
+\[
+	\{\varphi_{V_p}(a_p)\}_{p\in V}=\{\tau_{V V_p}(\varphi_V(a_p))\}_{p\in V}
+\]
+so that $s'$ can be obtained by first gluing together $\{\varphi_{U_p}(a_p)\}$, to
+obtain $s\in\mathfrak{G}(U)$ then by restricting to $\mathfrak{G}(V)$ via $\tau_{U V}$.
+In symbols this is:
+\[
+	\tau_{U V}(\psi_U(f))=\tau_{U V}(s)=s'=\psi_V(f|_V)=\psi_V(\rho_{U V}(f)).
+\]
+Thus (\ref{cdone}) is commutative and we are done.
+%
+\end{proof}%
+

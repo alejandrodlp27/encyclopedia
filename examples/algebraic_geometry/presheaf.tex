@@ -1,0 +1,46 @@
+\begin{examples*} $\;$\\%
+%  
+\renewcommand{\labelitemi}{$\square$}
+\begin{itemize}
+\item Let $X$ be a topological space and for an arbitrary open set $U\subseteq X$, set
+
+  \[
+    \Ff(U):=\{f:U\ra Y\mid f\;\text{is continuous}\} \quad\text{and}\quad \rho^V_U(f):=f|_{V}
+  \]
+  where $Y$ is any topological space. I verify that $\Ff:\cat{Top}(X)\ra\cat{Sets}$ is a
+  contravariant functor:
+
+  First observe that if $f\in\Ff(U)$ then $\rho^U_U(f)=f|_U=f$ and thus
+  $\rho^U_U=\Id_{\Ff(U)}$. Furthurmore, if $W\subseteq V\subseteq U$ is a sequence of open
+  subsets of $X$, then $f|_W=(f|_V)|_W$ so that
+  \[
+    \rho^W_U(f)=
+    f|_W=
+    (f|_V)|_W=
+    \rho^W_V(f|_V)=
+    \rho^W_V(\rho^V_U(f))=
+    \big(\rho^W_V\circ\rho^V_U\big)(f).
+  \]
+
+  In fact, if I give $\Ff(U)$ the compact-open topology, then the presheaf $\Ff$ becomes
+  a presheaf $\Ff:\cat{Top}(X)\ra\cat{Top}$. I only need to prove that $\rho^U_V:\Ff(U)\ra\Ff(V)$
+  is a continuous map for all open sets $V\subseteq U$ of $X$. Indeed, consider the subasic
+  open set:
+  \[
+    B(K,W):=\{f\in\Ff(V)\mid f[K]\subseteq W\}
+  \]
+  where $K\subseteq V$ is compact and $W\subseteq Y$ is open. Since $K\subseteq V\subseteq U$,
+  then for all $f\in\Ff(U)$ I have $f[K]=f|_V[K]=\rho^V_U(f)[K]$ so that $f|_V\in B(K,W)$ if
+  and only if $f\in B(K,W)\subseteq\Ff(U)$ (because $K$ is still compact in $U$). Thus
+  the preimage of $B(K,W)\subseteq\Ff(V)$ is open and $\rho^V_U$ is continuous.  
+\end{itemize}%
+%
+% 
+%\renewcommand{\labelitemi}{$\boxtimes$}
+%\begin{itemize}
+%\item In $\Cc=(\ZZ,\leq)$ and $\Cc=(\NN,\leq)$ there is no terminal object because there is no
+%  largest number.
+%\end{itemize}
+%
+%  
+\end{examples*}

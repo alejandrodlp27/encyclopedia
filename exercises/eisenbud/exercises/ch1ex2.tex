@@ -1,0 +1,37 @@
+%%% EXERCISE 2
+\HRule
+\subsection*{Exercise 2}
+\subsection*{%
+Let $R$ be a noetherian ring and $I\leq R$ an ideal. Define $\V{I}:=\{\p\in\spec{R}\mid I\subseteq\p\}$ as the set of
+prime ideals that contain $I$. Prove that there are only finitely many prime ideals in $\V{I}$ that are minimal with
+respect to inclusion.
+} 
+
+%%% ANSWER
+\begin{proof}%
+
+First denote $\min(\V{I})$ for the set of minimal prime ideales that contain $I$.
+
+Suppose that there is an ideal $I$ such that $\V{I}$ doesn't have a finite number of minimal primes, that is $\abs{\min(\V{I})}=\infty$.
+Since $R$ is noetherian, then the set $\Omega$ of such ideals that don't have a finitely many minimal prime ideals has a maximal
+element say $J$. Clearly $J$ isn't a prime ideal because $J$ would be the only minimal prime of $\V{J}$.
+Therefore there exist $f,g\not\in J$ such that $fg\in J$. 
+
+Now consider the ideals $J_f=J+\gen{f}$ and $J_g=J+\gen{g}$ that strictly contain $J$ (because $f,g\not\in J$); this
+means $J_f,J_g\not\in\Omega$ since $J\in\Omega$ is maximal. Thus $\V{J_f}$ and $\V{J_g}$ have finitely many minimal primes
+or in symbols $\min(\V{J_f})$ and $\min(\V{J_g})$ are finite.
+
+Let $\p\in\min(\V{J})$ be a minimal prime containing $J$ and suppose that $\p$ does not contain $J_f$ nor $J_g$. This means that
+$f,g\not\in\p$ and since $\p$ is prime, then $fg\not\in\p$. However $fg\in J\subseteq\p$ which is a contradiction. Thus $\p$
+must contain either $J_f$ or $J_g$. Furthermore, if $\q\subseteq\p$ is a prime ideal that contains $J_f$ or $J_g$ then clearly
+$\q$ contains $J$ and thus, by the minimality of $\p$ we have $\p=\q$. Therefore $\p$ is a minimal prime containing $J_f$ or $J_g$.
+
+We have just proven that if $\p\in\min(\V{J})$ then $\p\in\min(\V{J_f})\cup\min(\V{J_g})$ or equivalently
+\[
+	\min(\V{J})\subseteq\min(\V{J_f}) \cup \min(\V{J_g}).
+\]
+Since both $\min(\V{J_f})$ and $\min(\V{J_g})$ are finite then $\min(\V{J})$ is also finite which contradicts the definition of
+$J$. Thus every ideal of $R$ has finitely many minimal prime ideals that contain it.
+%
+\end{proof}%
+

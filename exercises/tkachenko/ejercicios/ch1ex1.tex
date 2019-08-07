@@ -1,0 +1,45 @@
+%%% EJERCICIO 1
+\subsection*{Ejercicio 1}
+\subsection*{%
+  Sea $H$ un subgrupo abeliano de un grupo topol\'ogico $G$ de Hausdorff. Si $H$ es denso, entonces $G$ tambi\'en
+  es abeliano. Es decir que para verificar la conmutativididad de un grupo, basta verificarlo para un subgrupo
+  denso.
+} 
+
+%%% ANSWER
+\begin{proof}%
+  Sea $f:G\times G\ra G$ definido por $(x,y)\mapsto xyx^{-1}y^{-1}$. Claramente es continua porque
+  es la composici\'on de las funciones continuas:
+  \[
+    \begin{tikzcd}[row sep=5]
+      G\times G \arrow[r] &
+      (G\times G)\times(G\times G) \arrow[r] &
+      (G\times G)\times(G\times G) \arrow[r,"\mu\times\mu"] &
+      G\times G \arrow[r,"\mu"] &
+      G
+      \\
+      (x,y) \arrow[r,mapsto] &
+      (x,y,x,y) \arrow[r,mapsto] &
+      (x,y,x^{-1},y^{-1}) \arrow[r,mapsto] &
+      (xy,x^{-1}y^{-1}) \arrow[r,mapsto] &
+      xyx^{-1}y^{-1}
+    \end{tikzcd}
+  \]
+  donde las primeras dos funciones son $(\Id\times\Id,\Id\times\Id)$ y
+  $\Id\times\Id\times\iota\times\iota$ respectivamente.
+  Como $G$ es Hausdorff, $\{e\}\subseteq G$ es cerrado, entonces:
+  \[
+    X:=f^{-1}[e]=\{(x,y)\in G\times G\mid xyx^{-1}y^{-1}=e\}=\{(x,y)\in G\times G\mid xy=yx\}
+  \]
+  es un subconjunto cerrado de $G\times G$. Observa que $G$ es abeliano si y s\'olo si
+  $X=G\times G$.
+
+  Ahora, como $H$ es abeliano por hip\'otesis,
+  $H\times H\subseteq X$. Adem\'as $\overline{H\times H}=\overline{H}\times\overline{H}$,
+  es el m\'inimo cerrado que contiene a $H\times H$, entonces
+  $\overline{H}\times\overline{H}\subseteq X$. Por hip\'otesis $H$ es denso, es decir $\overline{H}=G$.
+  Por lo tanto $G\times G=\overline{H}\times\overline{H}\subseteq X$ lo cual implica que $X=G\times G$
+  o equivalentemente que $G$ es abeliano.
+  
+\end{proof}%
+

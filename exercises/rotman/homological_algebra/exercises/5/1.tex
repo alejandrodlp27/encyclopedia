@@ -1,0 +1,25 @@
+%%% EXERCISE 10
+\HRule
+\subsection*{Exercise 1}
+\subsection*{ %
+  \begin{enumerate}
+  \item Prove that $\emptyset$ is an inicial object in $\cat{Sets}$.
+  \item Prove that any one-point set $\Omega=\{x_0\}$ is a terminal object in $\cat{Sets}$. In particular
+    what is the function $\emptyset\ra\Omega$?
+  \end{enumerate}
+}
+%%% ANSWER
+\begin{proof} Let $A$ be a set.%
+  \begin{enumerate}
+  \item Any function
+    $f:\emptyset\ra A$ must be $f=\emptyset$ becuase these functions are formally subsets
+    of $\emptyset\times A=\emptyset$. Since $\emptyset$ satisfies the definition of function,
+    we have $\{\emptyset\}\in\Hom{\emptyset,A}\subseteq\Pp(\emptyset)$.
+  \item Observe that $a\mapsto x_0$ is a well defined function $c_0:A\ra\Omega$. As a subset of
+    $A\times\Omega$, $c_0=A\times\Omega$. Any other such function $f:A\ra\Omega$ must be a subset
+    of $A\times\Omega$. Any element of $A\times\Omega$ is of the form $(a,x_0)$, furthermore,
+    for $f\subset A\times\Omega$ to be a function, every ordered pair of the same form has to
+    be an element of $f$ so that $A\times\{x_0\}\subseteq f$ and therefore $f=A\times\Omega=c_0$.
+  \end{enumerate}
+\end{proof}%
+

@@ -1,0 +1,53 @@
+%%% EXERCISE 18
+\subsection*{Exercise 18}
+\subsection*{%
+Let $X=\spec{A}$ be endowed with the Zariski Topology. Prove the following
+\begin{enumerate}
+	\item The set $\{\m\}\subseteq X$ is a closed point $\iff$ $\m$ is maximal.
+	\item $\overline{\{\p\}}=\mathbb{V}(\p)$
+	\item $\q\in\overline{\{\p\}} \;\iff\; \p\subseteq\q$.
+	\item $X$ is a $T_0$-space (that is for all $\p\neq\q$ in $X$ there exists
+	an open neigborhood of $\p$ which does not contain $\q$ or vice versa).
+	\item $\spec{A}$ is Hausdorff iff every prime ideal of $A$ is maximal.
+\end{enumerate}
+} 
+
+%%% ANSWER
+\begin{proof}$\;$\\%
+\begin{enumerate}
+	\item By the Zariski topology, $\{\m\}$ is a closed set iff $\{\m\}=\V{I}$
+	for some ideal $I\leq A$. This means that the only ideal that contains
+	$I$ is $\m$. Thus $I=\m$ and it is maximal. The other implication is trivial
+	because $\V{\m}=\{\m\}$ since $\m$ is maximal.
+	
+	\item We will prove that $\V{\p}$ is the closure of the point-set $\{p\}$ by
+	showing that any cloed set that contains $\{\p\}$ also contains $\V{\p}$. Let
+	$W=\V{I}\subseteq X$ be a closed set, for some ideal $I\leq A$, such that
+	$\p\in W$. This means that $I\subseteq\p$ and thus, for every element $\q\in\V{\p}$
+	we have $I\subseteq\p\subseteq\q$ so that $\q\in\V{I}$. Therefore
+	$\V{\p}\subseteq\V{I}=W$ and we are done.
+	
+	\item Trivial consequence of the previous result.
+	
+	\item Let $\p\neq\q$ be different points of $X$. Then, there is a $f\in(\p-\q)$
+	and the open set $X_f=X-\V{f}$ is an open neighborhood of $\q$ that does not
+	contain $\p$. Indeed: $f\not\in\q$ iff $\gen{f}\not\subseteq\q$ iff $\q\not\in\V{f}$
+	or equivalently $\q\in X_f$. Negating the previous equivalences we also conclude
+	that $f\in\p$ iff $\p\not\in X_f$. Thus $X_f$ is the desired neighborhood.
+	
+	\item In a Hausdorff space, point-sets are closed. Thus $\overline{\{\p\}}=\{\p\}$
+	for every prime ideal $\p$ of $A$ and by $(1)$ we conclude that every prime ideal
+	is maximal.
+	
+	Now lets assume that every prime ideal is maximal, in particular $\jac{A}=\sqrt{0}$.
+	We must prove that every pair of distinct points $\m,\n\in X$ can be seperated by
+	distinct open neighborhoods, that is the are open sets $U,V\subseteq X$ such that
+	$\m\in U$ and $\n\in V$, but $U\cap V=\emptyset$.
+	
+	Take $\m\neq\n$ two maximal ideals.
+	
+	
+\end{enumerate}
+%
+\end{proof}%
+

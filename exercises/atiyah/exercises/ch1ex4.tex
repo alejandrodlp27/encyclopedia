@@ -1,0 +1,38 @@
+%%% EXERCISE 4
+\subsection*{Exercise 4}
+\subsection*{%
+Prove that for any polynomial ring $A[x]$, the Jacobson radical is equal to the nilradical.
+In symbols $\jac{A[x]}=\sqrt{0}$.
+} 
+
+%%% ANSWER
+\begin{proof}%
+For an arbitrary ring $B$, every maximal ideal is prime then clearly the nilradical is contained
+in the Jacobson radical:
+\[
+	\sqrt{0}=\bigcap_{\p\,\text{prime}}\p \subseteq \bigcap_{\m\,\text{maximal}}\m=%
+	\jac{B}.
+\]
+This means that the inclusion $\sqrt{0}\subseteq\jac{A[x]}$ is trivial.
+Next we will use the characterization of the Jacobson radical:
+\begin{equation}\label{jacobsonequiv}
+	x\in\jac{A[x]} \quad\iff\quad 1-\la x\;\text{is a unit for all}\; \la\in A[x].%
+\end{equation}
+
+Let $f\in\jac{A[x]}$. We use exercise $2.ii$ to prove that $f\in\sqrt{0}$, ie. $f$ is nilpotent.
+If we write $f(x)=a_0+a_1 x+\cdots +a_n x^n$, then exercise $2.ii$ reduces the problem to
+proving that $a_i$ is nilpotent in $A$ for all $i=0,\ldots,n$.
+
+Now, if we take $\la=-1$ in (\ref{jacobsonequiv}) then we conclude that
+\[
+	1+f(x)=(1+a_0)+a_1 x+\cdots +a_n x^n
+\]
+is a unit. By exercise $2.i$ this means that $1+a_0$ is a unit in $A$ and $a_i$ is nilpotent
+for all $i=1,\ldots,n$. Thus the only thing left to prove is that $a_0$ is nilpotent.
+
+Since $1+a_0$ is a unit in $A$, there is a $u\in A$ such that $u(1+a_0)=u+ua_0=1$ which implies
+that $u=1-ua_0$. If we take $\la=u$ then $1-uf(x)=u+a_1x+\cdots+a_n x^n$ is a unit
+
+%
+\end{proof}%
+

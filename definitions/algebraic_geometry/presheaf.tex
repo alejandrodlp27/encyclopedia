@@ -1,0 +1,11 @@
+\begin{defin*}
+  Let $X$ be a topological space viewed as a category, and $\Cc$ a category. A \emph{presheaf}
+  over $X$ is a contravariant functor $\Ff:X\ra\Cc$; more precisely it consists of the data:
+  \begin{enumerate}
+  \item[($i$)] For every open $U\subseteq X$ there is an object $\Ff(U)\in\obj{\Cc}$.
+  \item[($ii$)] For every inclusion $\iota^V_U:V\ra U$, there is a morphism
+    $\rho^U_V:\Ff(U)\ra\Ff(V)$.
+  \item[($iii$)] $\rho^U_U=\Id_{\Ff(U)}$
+  \item[($iv$)] For every open subsets $W\subseteq V\subseteq U$, $\rho^W_U=\rho^V_U\circ\rho^W_V$.
+  \end{enumerate}
+\end{defin*}

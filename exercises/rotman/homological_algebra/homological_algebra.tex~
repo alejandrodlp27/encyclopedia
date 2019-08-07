@@ -1,0 +1,29 @@
+\documentclass[10pt]{report}
+\usepackage{template,algebra}
+\usepackage{tikz-cd}
+
+\begin{document}
+
+\chapter*{1: Introduction}
+\input{exercises/ch1ex1}
+\input{exercises/ch1ex2}
+\input{exercises/ch1ex3}
+\input{exercises/ch1ex4} 
+\input{exercises/ch1ex9}
+%\input{exercises/ch1ex10}
+%\input{exercises/ch1ex12}
+%\input{exercises/ch1ex14}
+%\input{exercises/ch1ex18}
+
+%\chapter*{2: Hom and Tensor}
+%\input{exercises/ch2ex1}
+%\input{exercises/ch2ex2}
+%\input{exercises/ch2ex4}
+
+%\chapter*{5: Setting the Stage}
+%\input{exercises/ch2ex1}
+%\input{exercises/ch2ex2}
+%\input{exercises/ch2ex4}
+
+\end{document}
+

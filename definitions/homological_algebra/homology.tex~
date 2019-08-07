@@ -1,0 +1,10 @@
+\begin{defin}
+  A \emph{complex} in a category $\Aa$ is a sequence of objects $\{A_n\}_{n\in\ZZ}$ and morphisms
+  $\{d_n:A_n\ra A_{n-1}\}_{n\in\ZZ}$, called \emph{differentials}, that satisfy $d_n\circ d_{n+1}=0$
+  for all $n\in\ZZ$. They are denoted as $(A_{\bullet},d_{\bullet})$ or as the diagram
+  \[
+    \begin{tikzcd}[row sep=large]
+      \cdots \arrow[r] & A_{n+1} \arrow[r,"d_{n+1}"] & A_n \arrow[r,"d_n"] & A_{n-1} \arrow[r] & \cdots.
+    \end{tikzcd}
+  \]
+\end{defin}

@@ -1,0 +1,95 @@
+\HRule
+\subsection*{Exercise 2}
+\subsection*{ %
+Prove that there is a functor $F:\categ{ComRings}\ra\categ{ComRings}$ that assigns, to a ring $R$, the ring of polynomials
+with coefficients in $R$. We define this functor as:}
+\[
+\begin{tikzcd}
+        R \arrow[r,mapsto,"F"] &
+        R[x] &
+        \Big[ r \arrow[r,mapsto,"\varphi"] &
+        \varphi(r) \Big] \arrow[r,mapsto,"F"] &
+        \Big[ \sum r_i x^i \arrow[r,mapsto,"F\varphi"] &
+        \sum \varphi(r_i)x^i \Big]
+\end{tikzcd}
+\]
+\subsection*{
+Also, prove that there exists a functor $K:\categ{Dom}\ra\categ{Dom}$ on the category of integral domains,
+that assigns the field of fractions $K(D)$ to the integral domain $D$ defined as}
+\[
+\begin{tikzcd}
+        D \arrow[r,mapsto,"K"] &
+        K(D) &
+        \Big[ x \arrow[r,mapsto,"\varphi"] &
+        \varphi(x)\Big] \arrow[r,mapsto,"K"] &
+        \Big[ \frac{x}{1} \arrow[r,mapsto,"K\varphi"] &
+        \left. \frac{\varphi(x)}{1} \right]
+\end{tikzcd}
+\]
+
+
+
+
+%%% ANSWER
+\begin{proof}%
+To prove that $F:\categ{ComRings}\ra\categ{ComRings}$ is a functor we must prove four things:
+\begin{enumerate}
+	\item Let $R\in\categ{ComRings}$ be a commutative ring, then clearly the ring of polynomials with coefficients
+		in $R$ is also commutative, that is $F(R)=R[x]\in\categ{ComRing}$.
+	\item If $\varphi\in\Hom{R,S}$ then $F\varphi$ is clearly a ring homomorphism because:
+		\begin{align*}
+			F\varphi\paren{\sum a_i x^i+\sum b_i x^i}&
+			=F\varphi\paren{\sum(a_i+b_i)x^i}
+			=\sum \varphi(a_i+b_i)x^i%
+			=\sum (\varphi(a_i)+\varphi(b_i))x^i\\
+			&=\sum\varphi(a_i)x^i+\sum\varphi(b_i)x^i
+			=F\varphi\paren{\sum a_i x^i}+F\varphi\paren{\sum b_i x^i}.
+		\end{align*}
+		and
+		\begin{align*}
+			F\varphi\paren{\paren{\sum a_i x^i}\paren{\sum b_i x^i}}&
+			=F\varphi\paren{\sum_i \paren{\sum_j a_j b_{i-j}}x^i}
+			=\sum_i \sum_j \varphi(a_j b_{i-j})x^i\\
+			&=\sum_i \sum_j\varphi(a_j)\varphi(b_{i-j}) x^i
+			=\paren{\sum\varphi(a_i)x^i}\paren{\sum \varphi(b_i) x^i}\\
+			&=F\varphi\paren{\sum a_i x^i}F\varphi\paren{\sum b_i x^i}.
+		\end{align*}
+		Therefore $F\varphi\in\Hom{R[x],S[x]}$.
+	\item Let $\varphi\in\Hom{R,S}$ and $\psi\in\Hom{S,T}$. Then the morphism $F(\psi)F(\varphi)$ maps:
+		\[
+		\begin{tikzcd}
+			\sum r_i x^i \arrow[r,mapsto,"F\varphi"] &
+			\sum \varphi(r_i) x^i \arrow[r,mapsto,"F\psi"] &
+			\sum \psi(\varphi(r_i))x^i=\sum (\psi\varphi)(r_i)x^i=F(\psi\varphi)\paren{\sum r_i x^i}
+		\end{tikzcd}
+		\]
+		and therefore $F(\psi\varphi)=F(\psi)F(\varphi)$.
+	\item Let $\Id_R$ be the identity map on $R$, then:
+		\[
+			F(\Id_R)\paren{\sum r_i x^i}=\sum \Id_R(r_i)x^i =\sum r_i x^i
+		\]
+		and thus $F(\Id_R)$ is the identity map on $R[x]$ so that $F(\Id_R)=\Id_{R[x]}$.
+\end{enumerate}
+
+Now we prove that $K:\categ{Dom}\ra\categ{Dom}$ is a functor following the same steps as before.
+\begin{enumerate}
+	\item If $D\in\categ{Dom}$ is an integral domain, then its field of fractions $K(D)$ is a field so that
+		in particular it is an integral domain. Therefore $K(D)\in\categ{Dom}$.
+	\item Let $\varphi\in\Hom(D,D')$ and consider:
+		\begin{align*}
+			K\varphi\paren{\frac{x}{y}+\frac{x'}{y'}}&
+			=K\varphi\paren{\frac{xy'+x'y}{y y'}}
+			=\frac{\varphi(xy'+x'y)}{y y'}
+			=\frac{\varphi(x)\varphi(y')+\varphi(x')\varphi(y')}{y y'}\\
+			&=\frac{\varphi(x)}{y}+\frac{\varphi(x')}{y'}
+			=K\varphi\paren{\frac{x}{y}}+K\varphi\paren{\frac{x'}{y'}}.
+		\end{align*}
+
+Since $K(D)$ is the localization of $D$ with respect to the
+		multiplicatively closed set $D-\zero$, then  
+
+\end{enumerate}
+
+%
+\end{proof}%
+

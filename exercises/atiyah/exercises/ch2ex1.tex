@@ -1,0 +1,59 @@
+%%% EXERCISE 1
+\subsection*{Exercise 1}
+\subsection*{%
+Let $n,m\in\ZZ$ be two coprime integers. Prove that $(\ZZ/n\ZZ)\otimes(\ZZ/m\ZZ)=0$
+} 
+
+%%% ANSWER
+\begin{proof}%
+We shall prove that the zero module $0$ has the universal property of the tensor product.
+Let $G$ be any $\ZZ$-module (ie. abelian group) and $\varphi$ a bilinear map
+$(\ZZ/n\ZZ)\times(\ZZ/m\ZZ)\ra G$; we must prove that $\varphi$ factors through the
+zero module, that is $\varphi\equiv 0$.
+
+Since $n$ and $m$ are coprime integers, there exist integers $a,b\in\ZZ$ such that $an+bm=1$.
+This equation impies that
+\begin{equation}\label{coprimelinearcomb}
+	1\equiv an \mod m \quad\text{,}\quad 1\equiv  bm \mod n.
+\end{equation}
+
+Furthurmore, the chinese Remainder Theorem (cf. Proposition 1.10) states that the
+ring homomorphism
+\[
+	\ZZ \morf{\phi} \frac{\ZZ}{n\ZZ}\times\frac{\ZZ}{m\ZZ} \quad x\mapsto (x+n\ZZ,x+m\ZZ)
+\]
+is surjective and has $nm\ZZ$ as its kernel; thus
+\[
+	\frac{\ZZ}{nm\ZZ}\cong\frac{\ZZ}{n\ZZ}\times\frac{\ZZ}{m\ZZ}.
+\]
+We can therefore compose this isomporphism with $\varphi$ to produce a homomorphism
+$\hat{\varphi}:\ZZ/nm\ZZ\ra G$ that vanishes identically to $\varphi$.
+
+Now let $x\in\ZZ$. With the equations ($\ref{coprimelinearcomb}$) in mind, we can
+calculate:
+\[
+	\hat{\varphi}(x)=\varphi(x+n\ZZ,x+m\ZZ)=\varphi(xbm+n\ZZ,x+m\ZZ)=bm\varphi(x+n\ZZ,x+m\ZZ)%
+			=bm\hat{\varphi}(x).
+\]
+and similarly $\hat{\varphi}(x)=an\hat{\varphi}(x)$. If we add both of these equations we get:
+\[
+	\hat{\varphi}(x)+\hat{\varphi}(x)=(an+bm)\hat{\varphi}(x)=\hat{\varphi}(x)
+\]
+and by the cancellation law ($G$ is an abelian group) we may conclude that $\hat{\varphi}(x)=0$
+for all $x\in\ZZ$. Thus $\varphi\equiv 0$ and indeed factors through the zero module. Therefore
+$(\ZZ/n\ZZ)\otimes(\ZZ/m\ZZ)=0$.
+%
+\end{proof}%
+
+\begin{remark*}
+	This exercise can easily be generalized to any ring $A$ as follows: let $I$ and $J$ be
+	two coprime ideals, that is $I+J=\gen{1}$. By the Chinese Remainder Theorem we have that
+	$I\cap J=IJ$ and that $A/(I\cap J)\cong(A/I)\times(A/J)$. This means that the image of
+	any $A$-bilinear map $(A/I)\times(A/J)\ra M$ (where $M$ is an $A$-module) is the image
+	of the induced map $A\epi A/(I\cap J)\cong(A/I)\times(A/J) \ra G$ because $A\epi A/(I\cap J)$
+	is surjective. Therefore the equation $i+j=1$, with $i\in I$ and $j\in J$ can be used in
+	exactly the same manner to prove that:
+	\[
+		\frac{A}{I}\otimes_A \frac{A}{J}=0 \quad\text{if $I$ and $J$ are coprime.}
+	\]
+\end{remark*}

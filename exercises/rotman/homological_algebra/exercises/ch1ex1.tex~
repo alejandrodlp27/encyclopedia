@@ -1,0 +1,16 @@
+%%% EXERCISE 10
+\HRule
+\subsection*{Exercise 1}
+\subsection*{ %
+Let $\Cc$ be a category prove the following:
+\begin{enumerate}
+	\item For each object $A$ of $\Cc$ there is a unique identity morphism.
+	\item If $f\in\hom{A,B}$ is an isomorphism then its inverse is unique.
+\end{enumerate}
+}
+%%% ANSWER
+\begin{proof}%
+
+
+\end{proof}%
+

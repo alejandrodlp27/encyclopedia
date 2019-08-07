@@ -1,0 +1,76 @@
+\begin{exer}{4}
+Show that $$\frac{d}{dz}\cos z = -\sin z \quad\text{and}\quad \frac{d}{dz}\sin z=cos z.$$
+\end{exer}
+
+\begin{proof}
+Since both $\cos z$ and $\sin z$ are entire, with Taylor series:
+\[
+	\cos z=\sum_{n=0}^{\infty} (-1)^n\frac{z^{2n}}{(2n)!} \quad\text{and}\quad %
+	\sin z=\sum_{n=0}^{\infty} (-1)^n\frac{z^{2n+1}}{(2n+1)!},
+\]
+their derivatives can be calculated by differentiating under the summation sign 
+(cf. 2.5, chapter 3, pg 35):
+\[
+	\der{z}\cos z=\der{z}\left\{ \sum_{n=0}^{\infty} (-1)^n\frac{z^{2n}}{(2n)!}\right\}= %
+	\sum_{n=0}^{\infty}\frac{(-1)^n}{(2n)!}\der{z}\left\{z^{2n}\right\}= %
+	-\sum_{n=1}^{\infty}(-1)^{n-1}\frac{z^{2n-1}}{(2n-1)!}= %
+	-\sin z.
+\]
+The other calculation is done in exactly the same manner.
+\end{proof}
+
+%%%
+\HRule
+%%%
+
+\begin{exer}{8}
+Define $$\tan z:=\frac{\sin z}{\cos z}.$$ Where is this function defined and analytic?
+\end{exer}
+\begin{proof}
+By the chain rule we have
+\[
+	\der{z}\frac{1}{f(z)}=-\frac{f'(z)}{f(z)^2}
+\]
+provided $f(z)\neq 0$. Thus if $f$ is analytic, then $1/f$ is analytic wherever $f(z)\neq0$.
+In this case we have $f(z)=\cos z$ so that $\tan z$ is well-defined and analytic wherever
+$\cos z\neq0$ which is when $z\neq \tfrac{\pi}{2}+k\pi$ for all $k\in\ZZ$.
+\end{proof}
+
+%%%
+\HRule
+%%%
+
+\begin{exer}{9}
+Let $G=\CC - \RR_{\leq 0}$ and $\{z_n\}\subseteq G$ a sequence given by $z_n=r_n e^{i \theta_n}$
+where $0<r_n$ and $-\pi<\theta_n<\pi$. If another point $z\in G$ is given by $z=r e^{i\theta}$,
+prove that $$z_n\ra z \quad\then\quad r_n\ra r \quad\text{and}\quad \theta_n\ra\theta$$.
+\end{exer}
+\begin{proof}
+First let us establish an equivalence for $z_n\ra z$ that will simplify some calculations.
+
+The complex plane is cannonically isometric to $\RR^2$, so we can identify:
+\[
+	z=r e^{i\theta} \quad\longleftrightarrow\quad (r\cos \theta, r\sin \theta)
+\]
+Thus our hypothesis is reduced to:
+\[
+	z_n\ra z \quad\iff\quad \forall \eps>0 \;\text{there exists}\;N\in\NN\;\text{such that}\; %
+	\abs{z_n-z}<\eps \;\text{for}\; n>N.	
+\]
+Since
+\begin{align*}
+	\abs{z_n-z}&=\abs{(r_n\cos\theta_n, r_n\sin\theta_n)-(r\cos\theta,r\sin\theta)}\\  %
+		&=\sqrt{(r_n\cos\theta_n-r\cos\theta)^2+(r_n\sin\theta_n-r\sin\theta)^2}\\
+		&=\sqrt{r_n(\cos^2 \theta_n+\sin^2\theta_n)+r(\cos^2\theta+\sin^2\theta)- %
+			2r_n r\cos(\theta-\theta_n)}.
+\end{align*}
+Thus
+\[
+	z_n\ra z \quad\iff\quad \forall\eps>0\quad r^2+r_n^2 -2r_nr\cos(\theta-\theta_n)<\eps^2\quad %
+	\text{for sufficiently large}\; n.
+\]
+
+Now, by contradiction, suppose either $r_n\not\ra r$ or $\theta_n\not\ra\theta$. In the first case,
+if $r_n\not\ra r$, there exists and $\aps>0$ such that $\abs{r_n-r}>\eps$ for infinitely many $n$.
+
+\end{proof}

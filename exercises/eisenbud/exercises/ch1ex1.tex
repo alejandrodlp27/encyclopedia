@@ -1,0 +1,63 @@
+%%% EXERCISE 10
+\HRule
+\subsection*{Exercise 1}
+\subsection*{%
+Let $M$ be an $R$-module. Prove that the following are equivalent:
+\begin{enumerate}
+	\item $M$ is noetherian (ie. every submodule is finitely generated).
+	\item Every ascending chain $M_1\subseteq M_2\subseteq\cdots$ of submodules of $M$ terminates.
+	\item Every set of submodules of $M$ has a maximal element with respect to inclusion.
+	\item Given any sequence $\{f_n\}$ of elements of $M$ there exists an $m\in\NN$ such that for all $n>m$
+		$f_n$ is a linear combination of $\{f_1,\ldots,f_m\}$. That is
+		\[
+			f_n=\sum_{i=1}^{m}a_i f_i \quad (a_i\in R).
+		\]
+\end{enumerate}
+} 
+
+%%% ANSWER
+\begin{proof} $\;$\\
+\begin{enumerate}
+	\item[$1\then 2$] Let $M_1\subsetneq M_2\subsetneq \cdots$ an ascending chain of submodules that doesn't
+		terminate. This means that for all $n\in\NN$ there is an element $f_n\in M_n-M_{n-1}$. Now
+		consider the submodule $M'=\gen{f_1,f_2,f_3,\ldots}$. By hypothesis, $M'$ is finitely generated
+		so that there is an $N\in\NN$ such that $M'=\gen{f_1,\ldots,f_N}$.
+
+		However, since $f_n\in M_n$ for all $n$, this implies that
+		\[
+			M'=\gen{f_1,f_2,\ldots}=\gen{f_1,\ldots,f_N}\subseteq M_1\cup\cdots\cup M_N\subseteq M_N,
+		\]
+		but this is a contradiction because $f_{N+1}\not\in M_{N}$ by construction. Thus the ascending
+		chain $M_1\subseteq M_2\subseteq \cdots$ must terminate.
+
+	\item[$2\then 3$] Let $\Omega$ be a non-empty set of submodules of $M$ that does not have maximal
+		elements with respect to inclusion. With this hypothesis we will construct an ascending chain
+		that doesn't terminate and thus prove the implication $(2\then 3)$ by contradiction.
+
+		Let $M_1\in\Omega$ be any submodule of $M$. Since $M_1$ is not maximal in $\Omega$, there is
+		an $M_2\in\Omega$ such that $M_1\subsetneq M_2$. Likewise, since $M_2$ isn't maximal there is
+		an $M_3\in\Omega$ such that $M_2\subsetneq M_3$. We can thus construct, inductively, an
+		ascending chain $M_1\subsetneq M_2\subsetneq M_3\subsetneq \cdots$ that doesn't terminate.
+
+	\item[$3\then 4$] Given a sequence $\{f_n\}_{n=1}^{\infty}$ of elements of $M$, define $M_n:=\gen{f_1,\ldots,f_n}$.
+		By hypothesis, the set $\Omega:=\{M_1,M_2,\ldots\}$ has a maximal element, say $M_m$. However,
+		for $n>m$ we have by construction $M_m\subseteq M_n$, but since $M_m$ is maximal, then $M_m=M_n$.
+		In particular, $f_n\in M_m=\gen{f_1,\ldots,f_m}$ and thus $f_n$ is a linear combination of the
+		set $\{f_1,\ldots,f_m\}$.
+
+	\item[$4\then 1$] Let $M'$ be a submodule of $M$ that is not finitely generated. Then if $f_1\in M'$
+		we have that $\gen{f_1}\neq M'$ because $M'$ is not finitely generated. Thus there exists an
+		$f_2\in M'-\gen{f_1}$. Again, since $M'$ isn't finitely generated, we have $\gen{f_1,f_2}\subsetneq M'$.
+		Inductively we can construct a sequence $f_1,f_2,f_3,\ldots$ such that
+		\[
+			\gen{f_1}\subsetneq \gen{f_1,f_2} \subsetneq \gen{f_1,f_2,f_3} \subsetneq \cdots.
+		\]
+
+		However, by hypothesis there is an $m\in\NN$ such that for all $n>m$, $f_n$ is a linear combination
+		of $\{f_1,\ldots,f_m\}$ or in other words $f_n\in\gen{f_1,\ldots,f_m}$ for all $n>m$. This
+		contradicts the construction of the sequence $f_1,f_2,\ldots$ becuase $f_{m+1}\not\in\gen{f_1,\ldots,f_m}$.
+		Thus $M'$ must be finitely generated.
+\end{enumerate}
+%
+\end{proof}%
+

@@ -1,0 +1,34 @@
+\begin{examples*} $\;$\\%
+  %
+  %% EXAMPLES
+\renewcommand{\labelitemi}{$\square$}
+\begin{itemize}
+\item Every exact sequence
+  \[
+    \begin{tikzcd}[row sep=large]
+      \cdots \arrow[r] & A_{n+1} \arrow[r,"f_{n+1}"] & A_n \arrow[r,"f_n"] & A_{n-1} \arrow[r] & \cdots.
+    \end{tikzcd}
+  \]
+  is a complex because $\ker(f_n)=\text{Im}(f_{n+1})$ implies that $f_n\circ f_{n+1}=0$.
+\item If $A$ is an object of $\Aa$ and $k\in\ZZ$ is a fixed integer, then the complex
+  $\varrho^k(A)$, called $A$ \emph{concentrated in degree} $k$, is the complex defined by
+  \[
+    \begin{tikzcd}
+      \cdots \arrow[r,"0"] &
+      0 \arrow[r,"0"] &
+      \underset{k\text{th term}}{\underbrace{A}} \arrow[r,"0"] &
+      0 \arrow[r,"0"] &
+      \cdots
+    \end{tikzcd}
+  \]
+  
+\end{itemize}%
+
+ %% COUNTEREXAMPLES
+\renewcommand{\labelitemi}{$\boxtimes$}
+\begin{itemize}
+\item
+\end{itemize}
+
+  
+\end{examples*}

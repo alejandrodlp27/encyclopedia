@@ -1,0 +1,33 @@
+\documentclass[10pt]{report}
+\usepackage{template,algebra}
+%\usepackage{tikz-cd}
+
+\begin{document}
+
+%%%% HOMOLOGICAL ALGEBRA
+\section*{Categories}
+
+%%%% INITIAL OBJECT
+\centering\rule{10 cm}{0.5pt}
+\input{homological_algebra/initial_object.tex}
+\input{examples/homological_algebra/initial_object.tex}
+
+%%%% TERMINAL OBJECT
+\centering\rule{10 cm}{0.5pt}
+\input{homological_algebra/terminal_object.tex}
+\input{examples/homological_algebra/terminal_object.tex}
+
+%%%% ZERO OBJECT
+\centering\rule{10 cm}{0.5pt}
+\input{homological_algebra/zero_object.tex}
+\input{examples/homological_algebra/zero_object.tex}
+
+%%%% ALGEBRAIC GEOMETRY
+\section*{Algebraic Geometry}
+
+%%%% PRESHEAF
+\centering\rule{10 cm}{0.5pt}
+\input{algebraic_geometry/presheaf.tex}
+\input{examples/algebraic_geometry/presheaf.tex}
+
+\end{document}

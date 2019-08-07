@@ -1,0 +1,47 @@
+\begin{examples*} $\;$\\%
+  %
+  %% EXAMPLES
+\renewcommand{\labelitemi}{$\square$}
+\begin{itemize}
+\item Any homeomorphism. If $f:E\ra X$ is a homeomorfism, $x\in X$ is arbitrary and $V\subseteq X$ any
+  connected open neighborhood of $x$, then $f^{-1}[V]$ is its own connected component and
+  $f^{-1}[V]\approx V$.
+
+\item The exponencial map $\RR\ra\Sn^1$.  View both $\RR$ and $\Sn^1$ embedded as a submanifolds of
+  $\RR^3$ via the following embeddings:
+  \[
+    t \mapsto (\cos 2\pi t,\sin 2\pi t,t) \quad\text{and}\quad
+    e^{2\pi t} \mapsto (\cos 2\pi t,\sin 2\pi t).
+  \]
+  If $p:\RR^3\ra\RR^2$ is the projection $(x_1,x_2,x_3)\mapsto(x_1,x_2)$, then clearly
+  $p|_{\RR}$ maps $\RR$ onto $\Sn^1$. For any basic open ball $B_r(x_1,x_2)$ with radius
+  $r>0$ and center $(\cos 2\pi t,\sin 2\pi t)\in\Sn^1$, its preimage under $p|_{\RR}$ is the open set
+  \[
+    \{(\cos2\pi s,\sin2\pi s,s)\in\RR^3 \mid
+    s\in\RR\;\; (\cos2\pi t -\cos2\pi s)^2+(\sin2\pi t -\sin2\pi s)^2<r^2 \}
+  \]
+  where
+  \[
+    (\cos2\pi t -\cos2\pi s)^2+(\sin2\pi t -\sin2\pi s)^2<r^2 \quad\iff\quad
+    2-2\cos(2\pi (t-s))
+  \]
+  
+  
+  
+  
+  
+\item The map $z\mapsto z^n$ on $\Sn^1$. View $\Sn^1$ embedded as a submanifold of $\RR^2$. If
+  $(x_1,x_2)\in\Sn^1$ then without loss of generality suppose that $x_1>0$. Take
+  $V=\{(x_1,x_2)\in\Sn^1\mid x_1>0\}$ and 
+\end{itemize}%
+
+ %% COUNTEREXAMPLES
+\renewcommand{\labelitemi}{$\boxtimes$}
+\begin{itemize}
+\item Non surjective functions. By definition, for each $x\in X$ there is an open set $U\subseteq E$
+  that is mapped homeomorphically onto an open neighborhood of $x$, thus $x$ necesarily has a
+  preimage inside $U$. Therefore every covering $p:E\ra X$ must be surjective.
+\end{itemize}
+
+  
+\end{examples*}

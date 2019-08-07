@@ -1,0 +1,46 @@
+\HRule
+\subsection*{Exercise 9}
+\subsection*{ %
+Let $X$ be a set and $\Bb(X)$ be the power set of $X$ (the set of all subsets of $X$) together with the following
+ring operations: for all $A,B\subseteq X$ define
+\[
+	A+B:= A\triangle B= (A-B)\cup(B-A) \quad\text{and}\quad A B:= A\cap B.
+\]
+We call $\Bb(X)$ the Boolean ring associated with the set $X$.
+Prove the following:
+\begin{enumerate}
+	\item[$(i)$] $\Bb(X)$ is a commutative ring with unity whose zero element is $\emptyset$ and whose multiplicative identity
+		is $X$.
+	\item[(ii)] $\Bb(X)$ has only one unit, namely $X$.
+	\item[(iii)] If $Y\subsetneq X$ is a proper set, then $\Bb(Y)$ is not a subring of $\Bb(X)$.
+	\item[(iv)] If $I\subseteq\Bb(X)$ is a non-empty set, prove that:
+		\[
+			I \;\text{is an ideal} \quad\iff\quad \text{for any}\; A\in I \;\text{then} A'\in I \;\forall A'\subseteq A.
+		\]
+		In particular the principal ideal $\gen{A}$ is just the power set of $A$, ie.
+		$\gen{A}=\{A'\in\Bb(X)\mid A'\subseteq A\}$.
+	\item[(v)] Every maximal ideal $\m$ of $\Bb(X)$ is of the form $\gen{X-\{x\}}$ for some $x\in X$.
+	\item[(vi)] Every prime ideal is maximal.
+\end{enumerate}
+} 
+
+%%% ANSWER
+\begin{proof} $\;$\\ %
+(i) Clearly addition in $\Bb(X)$ is commutative and associative because the simetric difference of sets has these
+properties:
+\begin{align*}
+	A\triangle B&=
+	(A-B)\cup(B-A)=
+	(B-A)\cup(A-B)=
+	B\triangle A\\
+	(A\triangle(B\triangle C)&=
+	(A-(B\triangle C))\cup((B\triangle C)-A)=
+	(A-((B-C)\cup(C-B)))\cup(((B-C)\cup(C-B))-A)\\&=
+	\Big(A\cap\big((B\cap C^c)\cup(C\cap B^c)\big)^c\Big)\cup\Big(\big((B\cap C^c)\cup(C\cap B^c)\big)\cap A^c\Big)\\&=
+	\Big(A\cap(B\cap C^c)^c\cap(C\cap B^c)^c\Big) \cup \Big( \big( (B^c \cup C)\cap(C^c\cup B)  \big)^c  \cap A^c\Big)\\&=
+\end{align*}
+
+
+%
+\end{proof} %
+

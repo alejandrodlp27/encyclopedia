@@ -1,0 +1,7 @@
+\begin{defin*}
+  An object $A$ in a category $Cc$ is called an \emph{initial object} if for every
+  $X\in\obj{\cat{Sets}}$ there is a unique morphism $A\ra X$, ie.
+  \[
+    A \quad\text{is initial}\quad \iff\quad \Hom{A,X}=\{f\}\quad \forall X\in\obj{\cat{Sets}}.
+  \]
+\end{defin*}

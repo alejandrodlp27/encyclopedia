@@ -1,0 +1,29 @@
+%%% EXERCISE 1.22
+\HRule
+\subsection*{Exercise 1.1}
+\subsection*{%
+  \begin{enumerate}
+  \item Let $X=\VV(x-y^2)$. Prove that $A(X)\cong k[x]$.
+  \item Let $Y=\VV(xy-1)$. Prove that $A(Y)\cong k[x]_{x}$.
+  \item Let $f\in k[x,y]$ be an irreducible quadratic polynomial and let $Z=\VV(f)$ de conic
+    defined by $f$. Show that $A(Z)$ is isomorphic to $A(X)$ or $A(Y)$.
+  \end{enumerate}
+} 
+
+%%% ANSWER
+\begin{proof}%
+  \begin{enumerate}
+  \item Since $x\mapsto(x,x^2)$ is an isomorphism with inverse $(x,y)\mapsto x$, then
+    $X\cong\AAA^1$ so that $$A(X)\cong A(\AAA^1)=k[x].$$
+  \item The morphism $\varphi:\AAA^1-\{0\}\ra Y$ defined as $\varphi(x)=(x,x^{-1})$ is
+    an isomorphism with inverse $(x,y)\mapsto x$. Thus $Y\cong\AAA^1-\{0\}$ so that
+    $A(Y)=A(\AAA-\{0\})=k[x,x^{-1}]=k[x]_x$. Since any morphism of rings $\varphi:k[x]_x\ra k[x]$
+    must take units into units, then $\varphi(x)\in k$ which implies that $\im{\varphi}\subseteq k$.
+    Therefore $\varphi$ is never surjective, in particular: $$k[x]_x\cong A(Y)\not\cong k[x].$$
+  \item Let $f\in k[x,y]$ be an irreducible quadratic polynomial.
+    
+  \end{enumerate}
+
+%
+\end{proof}%
+

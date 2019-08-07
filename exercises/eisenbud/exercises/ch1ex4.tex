@@ -1,0 +1,33 @@
+%%% EXERCISE 4
+\HRule
+\subsection*{Exercise 4}
+\subsection*{%
+Let $R=R_0 \oplus R_1 \oplus R_2 \oplus\cdots$ be a gradede ring. Prove that the following are equivalent:
+\begin{enumerate}
+	\item[(i)] $R$ is noetherian.
+	\item[(ii)] $R_0$ is noetherian and the irrelevant ideal $R_+=R_1\oplus R_2\oplus\cdots$ is finitely generated.
+	\item[(iii)] $R_0$ is noetherian and $R$ is a finitely generated $R_0$-algebra.
+\end{enumerate}
+} 
+
+%%% ANSWER
+\begin{proof}%
+\begin{enumerate}
+	\item[(i)$\then$(ii)] Since $R_+$ is an ideal of $R$, by hypothesis $R_+$ is finitely generated. Now let $I\leq R_0$
+		be any ideal. Then $I'=I\oplus 0\oplus 0\oplus\cdots\leq R$ is an ideal of $R$:
+
+		Clearly $I'$ is an additive subgroup of $R$ so we only need to prove that it is closed under multiplication by
+		elements of $R$. If $f=(f_0,0,\ldots)\in I'$ and $g=(g_0,\ldots,g_n,0,0,\ldots)\in R$ are arbitrary elements, then
+		\[
+			fg=(f_0 g_0,0,\ldots)=(f_0,0,\ldots)\cdot(g_0,0,\ldots),
+		\]
+		where $f_0\in I\leq R_0$ and $g_0\in R_0$. Therefore $f_0 g_0\in I$ and thus $fg\in I'$. We conclude that
+		$I'$ is an ideal of $R$ so that by hypothesis it is finitely generated. However,
+		\[
+			I \morf{\varphi} I'=I\oplus 0\oplus \cdots  \quad \text{with} \quad f\mapsto (f,0,0,\ldots)
+		\]
+		is 
+\end{enumerate}
+%
+\end{proof}%
+

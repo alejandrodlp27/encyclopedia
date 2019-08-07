@@ -1,0 +1,14 @@
+\begin{defin*}
+  Let $(X,\tau)$ be a topological space and $k$ a set (usually a field). A $k$-\emph{valued
+    sheaf of functions on X} is a family $\{(U,\Ff(U))\}_{U\in\tau}$ such that
+  \[
+    \Ff(U):=\{f:U\ra k\}
+  \]
+  satisfies de following axioms:
+  \begin{enumerate}
+  \item If $V\subseteq U$ then $f\in\Ff(U)\then f|_V\in\Ff(V)$.
+  \item If $\fU=\{U_i\}_I$ is an open cover of $U$ then for any family $\{f_i\}\in\prod\Ff(U_i)$
+    such that $f_i|_{U_i\cap U_j}=f_j|_{U_i\cap U_j}$ for all $i,j\in I$, then there exists a
+    unique function $f\in\Ff(U)$ such that $f|_{U_i}=f_i$ for all $i\in I$.
+  \end{enumerate}
+\end{defin*}

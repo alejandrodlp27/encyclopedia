@@ -1,0 +1,44 @@
+\HRule
+\subsection*{Exercise 4}
+\subsection*{
+If $\Ff:\Aa\ra\Bb$ is a functor, define $\Ff^{\text{op}}:\Aa^{\text{op}}\ra\Bb$ as:
+\[
+	\Ff^{\text{op}}(A)=\Ff(A) \;\;,\;\; \Ff^{\text{op}}\paren{f^{\text{op}}}=\Ff(f).
+\]
+Prove that $\Ff^{\text{op}}$ is a functor having the opposite variance of $\Ff$.
+} 
+
+%%% ANSWER
+\begin{proof}%
+Without loss of generality, we may assume that $\Ff$ is covariant. We prove the four properties of being a functor:
+\begin{enumerate}
+	\item If $A\in\Aa^{\text{op}}$ then $\Ff^{\text{op}}(A)=\Ff(A)\in\Bb$. 
+	\item If $f^{\text{op}}\in Hom_{\Aa^{\text{op}}}(A,B)=\Hom{B,A}$ with $A,B\in\Aa^{\text{op}}$, then %
+		$\Ff^{\text{op}}(f^{\text{op}})=\Ff(f)\in Hom_{\Bb}(\Ff(B),\Ff(A))$ because $f\in\Hom{B,A}$. Therefore
+		$\Ff^{\text{op}}$ is contravariant. Notice that if $\Ff$ were contravariant then $\Ff^{\text{op}}(f^{\text{op}})
+		=\Ff(f)\in\Hom{\Ff(A),\Ff(B)}$ because $f\in\Hom{B,A}$.
+	\item If $f^{\text{op}}\in\Hom{A,B}$ and $g^{\text{op}}\in\Hom{B,C}$ then $f\in\Hom{B,A}$ and $g\in\Hom{C,B}$
+		so that
+		\begin{align*}
+			\Ff^{\text{op}}\paren{A\morf{f^{\text{op}}}B\morf{g^{text{op}}}C}
+			\Ff^{\text{op}}\paren{A\morf{g^{\text{op}}f^{\text{op}}}C}&=
+			\Ff^{\text{op}}\paren{A\morf{(fg)^{\text{op}}}C}=
+			\Ff\paren{C\morf{fg}A}=
+			\Ff\Big[C\morf{g}B\morf{f}A\Big]\\=
+			&\Ff\paren{C\morf{g}B}\Ff\paren{B\morf{f}A}=
+			\Ff^{\text{op}}\paren{A\morf{f^{\text{op}}}B}\Ff^{\text{op}}\paren{B\morf{g^{\text{op}}}C}.
+		\end{align*}
+	\item If $A\in\Aa$, then $\Id_A$ is the unique function in $\Hom{A,A}$ such that $f\Id_A=f$ and
+		$\Id_B f=f$ for all $f\in\Hom{A,B}$. With these identities we can confirm that $\Id_{A}^{\text{op}}$
+		is the identity morphism of $A\in\AA^{\text{op}}$:
+
+		If $f^{\text{op}}\in\Hom{A,B}$ then $f^{\text{op}}\Id_A^{\text{op}}=(\Id_A f)^{\text{op}}$ and thus
+		\[
+			f^{\text{op}}\Id_A^{\text{op}}=(\Id_A f)^{\text{op}}=f^{\text{op}}
+		\]
+		because $f\in\Hom{B,A}$. Similarly $\Id_B^{\text{op}}f^{\text{op}}=f^{\text{op}}$.
+\end{enumerate}
+
+%
+\end{proof}%
+

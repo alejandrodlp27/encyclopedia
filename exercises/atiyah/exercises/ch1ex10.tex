@@ -1,0 +1,36 @@
+%%% EXERCISE 10
+\subsection*{Exercise 10}
+\subsection*{%
+Let $A$ be a ring and $\sqrt{0}$ its nilradical. prove that the following are equivalent:
+\begin{enumerate}
+	\item $A$ has exactly one prime ideal.
+	\item every element of $A$ is a unit or nilpotent, ie. $A=U(A)\cup\sqrt{0}$.
+	\item $A/\sqrt{0}$ is a field or equivalently $\sqrt{0}$ is maximal.
+\end{enumerate}
+} 
+
+%%% ANSWER
+\begin{proof}%
+We prove that $1\then 2\then 3\then 1$ as follows:
+\begin{enumerate}
+	\item[$1\then 2$] Suppose $A$ has one prime ideal $\p$, then $(A,\p,A/\p)$ is a
+	local ring and $A-\p$ is the set of units of $A$. On the other hand
+	$\sqrt{0}=\{\text{nilpotents}\}=\p$ so that $A=(A-\p)\cup \p=U(A)\cup \sqrt{0}$.
+	
+	\item[$2\then 3$] Let $a+\sqrt{0}$ be a nonzero element of $A/\sqrt{0}$, that is
+	$a\not\in \sqrt{0}$. By hypothesis we have $A=U(A)\cup\sqrt{0}$ so that $a$ must
+	be a unit in $A$. Units are preserved under projection so that $a+\sqrt{0}$ is a
+	unit, and we may conclude that $A/\sqrt{0}$ is a field.
+
+	\item[$3\then 1$] If $A/\sqrt{0}$ is a field, then $\sqrt{0}=\m$ is maximal.
+	This means that $\m\in\spec{A}$ and
+	\[
+		\m=\sqrt{0}=\bigcap_{\p\in\spec{A}}\p.
+	\]
+	Thus $\m\subseteq\p$ for every prime $\p$, but since $\m$ is maximal this is
+	only possible of $\m=\p$ for all $\p\in\spec{A}$. We conclude that $\sqrt{0}$
+	is the only prime ideal of $A$.
+\end{enumerate}
+%
+\end{proof}%
+

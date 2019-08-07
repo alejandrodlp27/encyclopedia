@@ -1,0 +1,40 @@
+%%% EXERCISE 14
+\subsection*{Exercise 14}
+\subsection*{%
+Let $A$ be a ring and
+\[
+	\Sigma=\{I\leq A \mid x\;\text{is a zero divisor}\;\forall x\in I\}.
+\]
+Show that $\Sigma$ has maximal elements and that these maximal elements are prime.
+Thus the set of zerodivisors is a union of prime ideals.
+} 
+
+%%% ANSWER
+\begin{proof}%
+First we use Zorn's Lemma: let $I_1\subseteq I_2\subseteq \cdots$ an ascending
+chain in $\Sigma$ and define $I=\cup I_n$. Clearly $I\in\Sigma$, because for all
+$x\in I$ there is an $n\in\NN$ such that $x\in I_n$ and thus it's a zerodivisor.
+
+Let $J$ be a maximal element of $\Sigma$ and suppose there are $f,g\not\in J$
+such that $fg\in J$. Now consider the ideal $J_f=J+\gen{f}$ that properly contains
+$J$ and $x\in J_f$ of the form $x=j+\la f$ for some $\la\in A$. If we multiply
+this equation by $g$ we have $xg=jg+\la fg\in J$ so that $xg$ is a zerodivisor,
+so that there is a $\mu\in A$, $\mu\neq 0$ such that $xg\mu=0$
+
+Now suppose $x$ is not a zero divisor, then $x\eta\neq 0$ for all $\eta\neq 0$.
+In particular, since $xg\mu=0$ then necessarily $g\mu=0$ so that $g$ is a zero
+divisor.
+
+Since the sum of zerodivisors is again a zerodivisor, we have that $J+\gen{g}$
+consists of only zerodivisors, or in symbols $J+\gen{g}\in\Sigma$. However this
+contradicts the maximality of $J$, thus $J$ must be a prime ideal.
+
+Let $D$ be the set of zerodivisors of $A$. Every element $x\in D$ generates an
+ideal $\gen{x}\in\Sigma$ which is contained in some maximal ideal of $\Sigma$.
+Thus $D\subseteq \cup I$ with $I\in\Sigma$ maximal. By definition each $I\subseteq D$
+so that th other inclusion is also valid. We have thus proved that $D$ is a union
+of prime ideals maximal in $\Sigma$.
+
+%
+\end{proof}%
+

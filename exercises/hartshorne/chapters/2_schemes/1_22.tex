@@ -1,0 +1,59 @@
+%%% EXERCISE 1.22
+
+%%% COMMUTATIVE DIAGRAMS
+\newcommand{\gluein}{22222}
+
+%%% DOCUMENT
+\HRule
+\subsection*{Exercise 1.22}
+\subsection*{Glueing Sheaves. Suppose $X$ is a topological space with an open %
+covering $\{U_i\}_{i\in\Lambda}$ where we denote the intersections by: %
+$U_{ij}:=U_i \cap U_j$ and $U_{ijk}:= U_i\cap U_j\cap U_k$. %
+Suppose we are given, for each $i\in\Lambda$ a sheaf $\F_i$ on $U_i$ together %
+with the family of sheaf isomorphisms:%
+\[
+	\left\{%
+	\varphi_{ij}:\F_i|_{U_{ij}}\lra\F_j|_{U_{ij}}%
+	\right\}_{i,j\in\Lambda}.
+\]
+Prove that we can glue the family of sheaves $\{F_i\}$ into a sheaf on $X$
+by proving that there exists a sheaf $\F$ on $X$ such that $\F\mid_{U_i}=\F_i$.
+For this to be possible we require that the family of sheaf isomorphisms
+$\{\varphi_{ij}\}$ satisfy the following functorial properties:
+\begin{enumerate}%
+	\item\label{glueone} $\varphi_{ii}=\Id_{\F_i|_{U_i}}$ for all $i\in\Lambda$.
+	\item\label{gluetwo} For all $i,j,k\in\Lambda$ the representations of
+	$\varphi_{ij},\varphi_{jk}$ and $\varphi_{ik}$ over the open set $U_{ijk}$
+	satisfy $\varphi_{ik}=\varphi_{jk}\circ\varphi_{ij}$ or equivalently we have
+	the commutative diagram:%
+\end{enumerate}%
+}
+
+%%% ANSWER
+\begin{proof}%
+%
+First we write explicitly what condition 2 means. The representation of $\varphi_{ij}$
+the open set $U=U_{ijk}\subseteq U_{ij}$ is the morphism
+\[
+	\F_i|_{U_{ij}}(U)\morf{(\varphi_{ij})_U} \F_j|_{U_{ij}}(U).
+\]
+At first glance it might not be to clear how we can compose these morphisms, but there is
+a natural equality that can help us deduce the commutative diagram for condition 2:
+\[
+	\F_i|_{U_{ij}}(U)=\F_i|_{U_{ik}}(U).
+\]
+This equality is indeed true because if $s\in\F_i|_{U_{ij}}(U)$ is a section and since
+$U_{ij}\cap U_{ik}=U_{ijk}$    = 
+
+\begin{equation}\label{glueingsheavesone}%
+\begin{tikzcd}%
+\F_i|_{U_{ij}}(U_{ijk}) \arrow[d,equal] \arrow[rr,"(\varphi_{ij})_{U_{ijk}}"] && \F_j|_{U_{ij}}(U_{ijk}) \arrow[r,equal] & \F_j|_{U_{jk}}(U_{ijk}) \arrow[rr,"(\varphi_{jk})_{U_{ijk}}"] && \F_k|_{U_{jk}}(U_{ijk}) \arrow[d,equal] \\%
+\F_i|_{U_{ik}}(U_{ijk}) \arrow[rrrrr,"(\varphi_{ij})_{U_{ijk}}"'] & &&& & \F_k|_{U_{ik}}(U_{ijk})%
+\end{tikzcd}%
+\end{equation}%
+%
+
+
+%
+\end{proof}%
+

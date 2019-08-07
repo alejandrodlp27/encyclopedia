@@ -1,0 +1,16 @@
+\begin{examples*} $\;$\\%
+  %
+  %% EXAMPLES
+\renewcommand{\labelitemi}{$\square$}
+\begin{itemize}
+\item
+\end{itemize}%
+
+ %% COUNTEREXAMPLES
+\renewcommand{\labelitemi}{$\boxtimes$}
+\begin{itemize}
+\item
+\end{itemize}
+
+  
+\end{examples*}
