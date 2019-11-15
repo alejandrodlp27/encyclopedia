@@ -1,0 +1,75 @@
+%%% EXERCISE 10
+\subsection*{Exercise 6}
+\subsection*{%
+Let $A$ be a non zero ring and let $\Sigma$ be the set of multiplicatively closed subsets $S\subset A$ such that $0\not\in S$. Show that
+\begin{enumerate}
+	\item $\Sigma$ has maximal elements with respect to containment.
+	\item\label{ex-6.2} $S\in\Sigma$ is maximal $\iff$ $A-S$ is a minimal prime.
+\end{enumerate}
+} 
+
+%%% ANSWER
+\begin{proof}
+
+
+\begin{enumerate}
+
+%%%%%%%%%%%%%%%% part 1
+	\item We will define a parcial order on $\Sigma$ in order to apply Zorn's Lemma, but first we slightly generalize $\Sigma$ in the following manner: let $X\subseteq A$ an arbitrary subset and define
+	\[
+		\Sigma(X):=\{S\in\Sigma\mid X\subseteq S\}.
+	\]
+Observe that $\Sigma(\emptyset)=\Sigma$ so that $\Sigma(X)$ indeed generalizes $\Sigma$. Furthermore, it is possible that $\Sigma(X)$ can be empty, for example if $0\in X$, but empty sets trivially have maximal elements so we may discard these cases from consideration. Finally observe that if $X\subseteq X'$ then $\Sigma(X')\subseteq \Sigma(X)$ and in particular $\Sigma(X)\subseteq\Sigma$ for all $X\subseteq A$.
+	
+	Now we fix a subset $X\subseteq A$ and define a partial order on $\Sigma(X)$. Set $S\leq S'$ if and only if $S\subseteq S'$ and let $\Cc$ be the ascending chain $S_1\subseteq S_2\subseteq \cdots$ in $\Sigma(X)$. Cleary the set $\bar{S}:=\cup S_n$ is an upper bound to the chain $\Cc$. To apply Zorn's Lemma we must prove that $\bar{S}\in\Sigma(X)$. We assert that this is true:
+	\begin{itemize}
+		\item Since $S_n\in\Sigma$ for all $n>0$, then $O\not\in S_n$ for all $n$ and thus $0\not\in \bar{S}$.
+		\item Suppose $s,t\in\bar{S}$, then $s\in S_n$ and $t\in S_m$ for some $n,m>0$. If $N=\max\{n,m\}$, then $S_n,S_m\subseteq S_N$ son that $s,t\in S_N$. Since $S_N$ is multiplicatively closed we conclude that $st\in S_N\subseteq\bar{S}$ and thus $\bar{S}$ is multiplicatively closed.
+		\item Since $X\subseteq S_n$ for all $n>0$ by hypothesis then clearly $X\subseteq\bar{S}$.
+	\end{itemize}
+	Now that we have $\bar{S}\in\Sigma(X)$, we may conclude that every ascending chain $\Cc$ in $\Sigma(X)$ has an upper bound $\bar{S}$ in $\Sigma(X)$. By Zorn's Lemma we conclude that $\Sigma(X)$ has maximal elements.	In particular $\Sigma$ has maximal elements.
+	
+%%%%%%%%%%%%%%% part 2
+	 \item We prove both implications:
+	\begin{itemize}		
+	\item[$(\Longrightarrow)$] Let $S\in\Sigma$ be a maximal element. For now, let us assume that $A-S$ is an ideal of $A$; we will prove this at the end. It is clearly a prime ideal because if $a,b\in A$ then
+	\[
+		a,b\not\in A-S\quad\iff\quad a,b\in S \quad\overset{*}{\then}\quad ab\in S\quad\iff\quad ab\not\in A-s,
+	\]
+	where (*) follows from $S$ being a multiplicative set. $A-S$ is also minimal among primes because if $\p\subseteq A-S$ is a prime ideal, then $S\subseteq A-\p$ and since $A-\p$ is multiplicative by definition of prime ideales, then $A-\p\in\Sigma$ (because $0\in\p$) and by the maximality of $S$ we must have $S=A-\p$ or equivalently $A-s=\p$. We have thus proved that if $A-S$ is an ideal, then it is a prime ideal minimal among prime ideals. Thus we must only prove that $A-S$ is an ideal.
+	
+	In order to prove that $A-S$ is an ideal, we characterize the elements of $A-S$ as follows: let $a\in A$, then whenever $S$ is a maximal element of $\Sigma$ then:
+	\begin{equation}\label{eq:not-in-S-nilradical}
+		a\not\in S \quad\Longleftrightarrow\quad \frac{a}{1}\in\mathrm{Nil}(S^{-1}A).
+	\end{equation}
+	Before we prove the above statement, we observer that it clearly implies that $A-S$ is an ideal. Indeed, if $a,b\in A-S$ and $c\in A$ are arbitrary, then $a/1,b/1\in \mathrm{Nil}(S^{-1}A)$. Since $\mathrm{Nil}(S^{-1}A)$ is an ideal of $S^{-1}A$ then $a/1-b/1=(a-b)/1$ and $c/1\cdot a/1$ are both elements of $\mathrm{Nil}(S^{-1}A)$. By \eqref{eq:not-in-S-nilradical} we conclude that $a-b,ca\in A-S$.	Thus \eqref{eq:not-in-S-nilradical} proves that $A-S$ is an ideal and this finishes the proof of the second part.
+	
+	In order to prove \eqref{eq:not-in-S-nilradical}, first define the set $S_a\subseteq A$ as the product of the multiplicative sets $S$ and $\{1,a,a^2,\ldots\}$. Cleary $S_a$ is a multiplicative set. Since $1\in S$ by definition, we have that $a\in S_a$. Additionally, since $1\in\{1,a,a^2,\ldots\}$, then $S\subseteq S_a$. Therefore $a\not\in S$ if and only if $S\subsetneq S_a$. On the other hand, by definiton $a/1\in\mathrm{Nil}(S^{-1}A)$ if and only if $(a/1)^n=a^n/1=0/1$ for some $n>0$. This equality happens in $S^{-1}A$ if and only if there exists an $s\in S$ such that $a^ns=0$, but this is precisely the definition of $0$ being an element of $S_a$. With these considerations we have just reduced the problem of proving \eqref{eq:not-in-S-nilradical} to proving:
+	\begin{equation}
+		S\subsetneq S_a \quad\iff\quad 0\in S_a.
+	\end{equation}
+It is clear that the direction $(\Longleftarrow)$ follows from our hypothesis that $0\not\in S$. Suppose now that $0\not\in S_a$ so that, $S_a$ being multiplicative, $S_a\in\Sigma$. However this contradicts the maximality of $S$ because $S\subsetneq S_a$ and therefore we may conclude by contradiction that $0\in S_a$. This concludes the proof of \eqref{eq:not-in-S-nilradical}.
+
+In conclusion, if $S$ is maximal, then $A-S$ is an ideal by \eqref{eq:not-in-S-nilradical}, it is a prime ideal because $S$ is multiplicatively closed and it is minimal among primes becuase $S$ is maximal.	
+	
+		\item[$(\Longleftarrow)$] Suppose $A-S$ is a prime ideal minimal among prime ideals. Since $A-S$ is prime then $S$ is multiplicatively closed. Indeed, if $s,t\in S$ then $s,t\not\in A-S$ so that by primality $st\not\in A-S$	and thus $st\in S$. Furthurmore since $1\not\in A-S$, then $1\in S$ and therefore $S$ is multiplicatively closed. Since $0\in A-S$ we have $0\not\in S$ and thus $S\in\Sigma$.
+		
+		Now suppose that $S'\in\Sigma$ is such that $S\subseteq S'$. In particular $S'\in\Sigma(S)$ and by the first part of the proof, there exists $S''\in\Sigma(S)$, maximal among elements of $\Sigma(S)$. Now suppose that $S'''\in\Sigma$ is such that $S''\subseteq S'''$, since $S\subseteq S''\subseteq S'''$, then $S'''\in\Sigma(S)$ and by the maximality of $S''$ in $\Sigma(S)$ we have $S''=S'''$ and thus $S''$ is a maximal element of $\Sigma$ that contains $S$. By the part of the proof $(\Longrightarrow)$ we have that $A-S''$ is a prime ideal and since $S\subseteq S'\subseteq S''$ implies $A-S''\subseteq A-S'\subseteq A-S$ then $A-S''$ is a prime ideal contained in the minimal prime ideal $A-S$. Thus we must have $A-S''=A-S$ and therefore $S=S''$ which implies that $S=S'$.  This proves that $S$ is a maximal element in $\Sigma$.
+	\end{itemize}
+\end{enumerate}
+
+%
+\end{proof}%
+
+(\emph{Remark}) A consequence of exercise 6 is the following statement: Let $D$ be the set of non zero zero-divisors of some ring $A$, then
+\[
+	\p\subset A\;\;\text{is a minimal prime ideal}\quad\then\quad \p\subseteq D\cup\{0\}.
+\]
+
+First set $S:=A-\p$ so that $A-S=A-(A-\p)=\p$; y exercise 6.\ref{ex-6.2}, $S$ is a maximal element of $\Sigma$ (since $A-(A-\p)=\p)$. Also set $T:=A-(D\cup\{0\})$ so that $T$ es multiplicatively closed.%
+%
+\footnote{To prove this take $a,b\in T$ (i.e. $a,b\not\in D\cup\{0\}$) and suppose that $ab\not\in T$ (i.e. $ab\in D\cup\{0\}$). If $ab=0$, then $a$ and $b$ are both zero divisors since $a,b\neq0$ by hypothesis. However this contradicts that $a,b\not\in D$ and thus $ab\neq0$ and we may assume that $ab\in D$. By definition there exists $c\in A-\{0\}$ such that $abc=a(bc)=b(ac)=0$. Since $a,b\not\in D\cup\{0\}$, we necesarrily have $bc=ac=0$ and applying the same reasoning again we conclude that $c=0$ which contradictions the choice of $c$. We may therefore conclude that $ab\in T$ and thus $T$ is a multiplicatively closed set becuase in addition $1\in T$ becuase $1\not\in D\cup\{0\}$ since $A\neq0$.
+}
+ 
+Now suppose by contradiction that $\p\not\subseteq D\cup\{0\}$, that is there exists $t\in\p$ (i.e. $t\not\in S$) such that $t\not\in D\cup\{0\}$ (i.e. $t\in T$). That is $S\neq T$ and in particular the set $ST=\{st\mid s\in S,t\in T\}$ contains $S$ because $1\in T$ and the containment is strict because $t=1\cdot t\in ST-S$. Since $S\subsetneq ST$, then $0\in ST$ becuase otherwise, $0\not\in ST$ would imply that $ST\in\Sigma$ which would contradict the maximality of $S$. Thus there exist $s\in S$ (i.e. $s\not\in\p$) and $t\in T$ (i.e. $t\not\in D\cup\{0\}$) such that $st=0$. However, since $t$ is a non zero zero-divisor then necesarily $s=0$, but this contradicts the choice of $s$ because $0\in\p$. Thus the original assumption that $\p\not\subseteq D\cup\{0\}$ cannot be true and thus $\p\subseteq D\cup\{0\}$.
+
